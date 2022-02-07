@@ -1,0 +1,22 @@
+﻿table {
+    border-color: black;
+    border: solid;
+    padding: 2%;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+#headingTable {
+    text-align: center;
+    background-color: orange;
+}
+
+#LoginButton {
+    text-align: center;
+    width: 100px;
+    height: 50px;
+    border-radius:3px 5px;
+}

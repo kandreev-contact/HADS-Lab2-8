@@ -33,15 +33,6 @@ namespace RegistroUsuariosWeb
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-
-        /// <summary>
         /// EmailTB control.
         /// </summary>
         /// <remarks>
@@ -51,39 +42,48 @@ namespace RegistroUsuariosWeb
         protected global::System.Web.UI.WebControls.TextBox EmailTB;
 
         /// <summary>
-        /// PassTB control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PassTB;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// Login control.
+        /// PasswordTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Login;
+        protected global::System.Web.UI.WebControls.TextBox PasswordTB;
 
         /// <summary>
-        /// RegistroHL control.
+        /// LoginButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink RegistroHL;
+        protected global::System.Web.UI.WebControls.Button LoginButton;
 
         /// <summary>
-        /// CambiarPassHL control.
+        /// RegistroLB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink CambiarPassHL;
+        protected global::System.Web.UI.WebControls.LinkButton RegistroLB;
+
+        /// <summary>
+        /// CambiarPassLB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton CambiarPassLB;
     }
 }

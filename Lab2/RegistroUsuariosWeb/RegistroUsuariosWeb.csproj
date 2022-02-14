@@ -44,6 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -67,20 +68,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CambiarPass.aspx" />
+    <Content Include="CambiarPassword.aspx" />
+    <Content Include="CamboarPasswordE.aspx" />
     <Content Include="Confirmar.aspx" />
+    <Content Include="css\CommonStyle.css" />
+    <Content Include="css\confirmarStyle.css" />
+    <Content Include="css\cpasswordEStyle.css" />
+    <Content Include="css\cpasswordStyle.css" />
+    <Content Include="css\registroStyle.css" />
+    <Content Include="css\inicioStyle.css" />
+    <Content Include="imgs\logo.png" />
+    <Content Include="imgs\upvb.jpeg" />
     <Content Include="Inicio.aspx" />
-    <Content Include="InicioStyle.css" />
     <Content Include="Registro.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CambiarPass.aspx.cs">
-      <DependentUpon>CambiarPass.aspx</DependentUpon>
+    <Compile Include="CambiarPassword.aspx.cs">
+      <DependentUpon>CambiarPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CambiarPass.aspx.designer.cs">
-      <DependentUpon>CambiarPass.aspx</DependentUpon>
+    <Compile Include="CambiarPassword.aspx.designer.cs">
+      <DependentUpon>CambiarPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CamboarPasswordE.aspx.cs">
+      <DependentUpon>CamboarPasswordE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CamboarPasswordE.aspx.designer.cs">
+      <DependentUpon>CamboarPasswordE.aspx</DependentUpon>
     </Compile>
     <Compile Include="Confirmar.aspx.cs">
       <DependentUpon>Confirmar.aspx</DependentUpon>

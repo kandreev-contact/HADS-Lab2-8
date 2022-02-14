@@ -1,0 +1,72 @@
+
+
+.loginBox {
+    background-color: white;
+    position: absolute;
+    margin: 40px;
+    margin-top: 200px;
+    padding-left: 15px;
+    padding-right: 10px;
+    width: 330px;
+    height: 450px;
+    color: black;
+    z-index: 8;
+}
+
+
+.infoDIV {
+    background-color: orange;
+    opacity: 30%;
+    height: 40px;
+    padding: 5px;
+}
+
+.informationDiv p {
+    position: absolute;
+    margin-left: 10px;
+}
+
+
+table {
+    padding: 10px;
+}
+
+.boxesT {
+    width: 280px;
+    height: 30px;
+}
+
+#LoginButton {
+    background-color: orange;
+    color: black;
+    text-align: center;
+    width: 100px;
+    height: 40px;
+}
+
+.bottomRows {
+    padding: 15px;
+}
+
+.bottomRowsL {
+    padding-left: 40px;
+}
+
+
+
+.informationBox {
+    position: fixed;
+    margin-top: 220px;
+    margin-left: 600px;
+    color: black;
+    z-index: 2;
+}
+
+    .informationBox h1 {
+        background-color: white;
+        font-size: 35px;
+        display: inline;
+        margin: 0;
+        font-weight: 700;
+        box-shadow: 15px 0 0 #fff,-10px 0 0 #fff;
+    }

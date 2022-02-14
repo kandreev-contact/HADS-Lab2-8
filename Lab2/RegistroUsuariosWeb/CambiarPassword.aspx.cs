@@ -13,5 +13,10 @@ namespace RegistroUsuariosWeb
         {
 
         }
+
+        protected void CambiarPassButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

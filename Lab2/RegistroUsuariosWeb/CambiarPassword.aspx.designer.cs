@@ -11,7 +11,7 @@ namespace RegistroUsuariosWeb
 {
 
 
-    public partial class Inicio1
+    public partial class CambiarPass
     {
 
         /// <summary>
@@ -24,13 +24,31 @@ namespace RegistroUsuariosWeb
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// divSend control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSend;
+        protected global::System.Web.UI.WebControls.Label Label3;
+
+        /// <summary>
+        /// CodeRequiredFieldValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator CodeRequiredFieldValidator;
+
+        /// <summary>
+        /// CodeTBC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox CodeTBC;
 
         /// <summary>
         /// Label1 control.
@@ -42,22 +60,22 @@ namespace RegistroUsuariosWeb
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// EmailRFieldValidator control.
+        /// PassRequiredFieldValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator EmailRFieldValidator;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator PassRequiredFieldValidator;
 
         /// <summary>
-        /// EmailTB control.
+        /// PasswordTBC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EmailTB;
+        protected global::System.Web.UI.WebControls.TextBox PasswordTBC;
 
         /// <summary>
         /// Label2 control.
@@ -69,48 +87,30 @@ namespace RegistroUsuariosWeb
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// PasswordRFieldValidator control.
+        /// PassRRequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator PasswordRFieldValidator;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator PassRRequiredFieldValidator1;
 
         /// <summary>
-        /// PasswordTB control.
+        /// PasswordTBCC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PasswordTB;
+        protected global::System.Web.UI.WebControls.TextBox PasswordTBCC;
 
         /// <summary>
-        /// LoginButton control.
+        /// CambiarPassButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LoginButton;
-
-        /// <summary>
-        /// RegistroLB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton RegistroLB;
-
-        /// <summary>
-        /// CambiarPassLB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton CambiarPassLB;
+        protected global::System.Web.UI.WebControls.Button CambiarPassButton;
     }
 }

@@ -17,7 +17,7 @@
             </div>
 
             <div class="loginBox">
-                <h1>Has confirmado tu e-mail!</h1>
+                <h1 id="headerConfirmation" runat="server"></h1>
                 <p>Volver a la pagina de <a href="Inicio.aspx">inicio</a>.</p>
             </div>
 

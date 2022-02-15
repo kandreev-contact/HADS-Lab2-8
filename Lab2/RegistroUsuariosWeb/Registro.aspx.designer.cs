@@ -33,6 +33,15 @@ namespace RegistroUsuariosWeb
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSend;
 
         /// <summary>
+        /// textDivError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl textDivError;
+
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>

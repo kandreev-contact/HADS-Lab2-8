@@ -18,7 +18,7 @@
                 <h1>Sign Up</h1>
 
                 <div id="divSend" class="informationDiv" runat="server">
-                    <p>Se ha enviado a tu email!</p>
+                    <p id="textDivError" runat="server"></p>
                     <div class="infoDIV">
                     </div>
                 </div>
@@ -100,8 +100,8 @@
                         </td>
                         <td class="bottomRowsL">
                             <asp:RadioButtonList ID="RoleSelectRBL" runat="server">
-                                <asp:ListItem Text="Estudiante" Value="1" />
-                                <asp:ListItem Text="Profesor" Value="2" />
+                                <asp:ListItem Text="Estudiante" Value="Estudiante" />
+                                <asp:ListItem Text="Profesor" Value="Profesor" />
                             </asp:RadioButtonList>
                         </td>
                     </tr>

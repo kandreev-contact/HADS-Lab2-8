@@ -24,6 +24,24 @@ namespace RegistroUsuariosWeb
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// infoDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl infoDiv;
+
+        /// <summary>
+        /// textDivInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl textDivInfo;
+
+        /// <summary>
         /// Label3 control.
         /// </summary>
         /// <remarks>
@@ -69,6 +87,15 @@ namespace RegistroUsuariosWeb
         protected global::System.Web.UI.WebControls.RequiredFieldValidator PassRequiredFieldValidator;
 
         /// <summary>
+        /// PassSameOldNewValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator PassSameOldNewValidator;
+
+        /// <summary>
         /// PasswordTBC control.
         /// </summary>
         /// <remarks>
@@ -94,6 +121,15 @@ namespace RegistroUsuariosWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator PassRRequiredFieldValidator1;
+
+        /// <summary>
+        /// PasswordsEValidators control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator PasswordsEValidators;
 
         /// <summary>
         /// PasswordTBCC control.

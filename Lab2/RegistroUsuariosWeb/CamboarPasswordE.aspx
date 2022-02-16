@@ -20,7 +20,11 @@
 
             <div class="loginBox">
                 <h1>Cambiar Contraseña</h1>
-
+                <div id="divSend" class="informationDiv" runat="server">
+                    <p id="textDivError" runat="server">Datos incorrectos!</p>
+                    <div class="infoDIV" runat="server">
+                    </div>
+                </div>
 
                 <table>
                     <tr>
@@ -47,7 +51,7 @@
                     </tr>
                     <tr>
                         <td class="bottomRows" rowspan="2">
-                            <asp:Button ID="RestartPassButton" runat="server" Text="Resetear Contraseña" OnClick="RestartPassButton_Click" PostBackUrl="~/CambiarPassword.aspx" />
+                            <asp:Button ID="RestartPassButton" runat="server" Text="Resetear Contraseña" OnClick="RestartPassButton_Click" />
                         </td>
 
                     </tr>

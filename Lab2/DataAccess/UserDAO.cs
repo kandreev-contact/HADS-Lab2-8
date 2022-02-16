@@ -1,4 +1,6 @@
-﻿using Azure;
+﻿using System.Configuration;
+using System.Collections.Specialized;
+using Azure;
 using EntityLayer;
 using System;
 using System.Collections.Generic;
@@ -10,7 +12,7 @@ using System.Windows;
 
 namespace DataAccessLayer
 {
-    public class UserDAO : IUserOperations
+    public class UserDAO : IUserDAO
     {
         private SqlCommand sqlCommand;
         private SqlConnection sqlConnection;
@@ -45,7 +47,7 @@ namespace DataAccessLayer
             }
         }
 
-        public bool checkUserRegister(string email)
+        public bool checkExistingUser(string email)
         {
             try
             {
@@ -59,11 +61,11 @@ namespace DataAccessLayer
 
                 if (rowsAffected == 0)
                 {
-                    return true;
+                    return false;
                 }
                 else
                 {
-                    return false;
+                    return true;
                 }
             }
             catch (Exception ex)
@@ -72,7 +74,8 @@ namespace DataAccessLayer
             }
         }
 
-        public bool checkUserRegister(string email, int numconf)
+
+        public bool checkUserToConfirm(string email, int numconf)
         {
             try
             {
@@ -104,9 +107,9 @@ namespace DataAccessLayer
         {
             try
             {
-                string selectQuery = "update Usuarios set confirmado=@confirmation where email=@email";
+                string updateQuery = "update Usuarios set confirmado=@confirmation where email=@email";
 
-                sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
+                sqlCommand = new SqlCommand(updateQuery, this.sqlConnection);
 
                 sqlCommand.Parameters.AddWithValue("@email", email);
                 sqlCommand.Parameters.AddWithValue("@confirmation", true);
@@ -158,6 +161,102 @@ namespace DataAccessLayer
 
                 sqlCommand.Parameters.AddWithValue("@email", email);
                 sqlCommand.Parameters.AddWithValue("@password", password);
+
+                int rowsAffected = Convert.ToInt32(sqlCommand.ExecuteScalar());
+
+                if (rowsAffected == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Database Query error! " + ex.ToString());
+            }
+        }
+
+        public void setUserPassCodeChanged(String email, int codPass)
+        {
+            try
+            {
+                string updateQuery = "update Usuarios set codpass=@codPass where email=@email";
+
+                sqlCommand = new SqlCommand(updateQuery, this.sqlConnection);
+
+                sqlCommand.Parameters.AddWithValue("@email", email);
+                sqlCommand.Parameters.AddWithValue("@codPass", codPass);
+
+                sqlCommand.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Database Query error! " + ex.ToString());
+            }
+        }
+
+        public bool checkUserCodePass(string email, int codPass)
+        {
+            try
+            {
+                string selectQuery = "select count(*) from Usuarios where email=@email and codpass=@codPass";
+
+                sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
+
+                sqlCommand.Parameters.AddWithValue("@email", email);
+                sqlCommand.Parameters.AddWithValue("@codPass", codPass);
+
+                int rowsAffected = Convert.ToInt32(sqlCommand.ExecuteScalar());
+
+                if (rowsAffected == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Database Query error! " + ex.ToString());
+            }
+        }
+
+        public void changeUserPassword(string email, String newPassword)
+        {
+            try
+            {
+                string updateQuery = "update Usuarios set pass=@newPass where email=@email";
+
+                sqlCommand = new SqlCommand(updateQuery, this.sqlConnection);
+
+                sqlCommand.Parameters.AddWithValue("@email", email);
+                sqlCommand.Parameters.AddWithValue("@newPass", newPassword);
+
+                sqlCommand.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Database Query error! " + ex.ToString());
+            }
+        }
+
+        public bool checkUserPassword(String email, string newPassword)
+        {
+            try
+            {
+                string selectQuery = "select count(*) from Usuarios where email=@email and pass=@newPassword";
+
+                sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
+
+                sqlCommand.Parameters.AddWithValue("@email", email);
+                sqlCommand.Parameters.AddWithValue("@newPassword", newPassword);
 
                 int rowsAffected = Convert.ToInt32(sqlCommand.ExecuteScalar());
 

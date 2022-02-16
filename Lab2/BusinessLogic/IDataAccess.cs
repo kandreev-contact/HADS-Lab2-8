@@ -14,7 +14,17 @@ namespace BusinessLogic
 
         bool checkConfirmed(String email);
 
-        bool login(String email, String password);
+        bool login(String email, String password); // can change in the feature
+
+        bool checkUserRegistered(String email);
+
+        void changeUserCodePass(String email, int codpass);
+
+        void changeUserPassword(String email, String newPassword);
+
+        bool checkUserCodePass(String email, int codpass);
+
+        bool checkUserPassword(String email, String newPassword);
 
     }
 }

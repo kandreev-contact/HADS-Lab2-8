@@ -20,7 +20,9 @@ namespace DataAccessLayer
 
         public GeneralDAO()
         {
+
             this.connectionString = "Data Source=tcp:hads22-12.database.windows.net,1433;Initial Catalog=HADS22-12;User ID=kandreev001@ikasle.ehu.eus@hads22-12;Password=HADS22-12";
+
         }
 
         public void openConection()

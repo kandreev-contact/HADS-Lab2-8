@@ -18,8 +18,8 @@
 
             <div class="loginBox">
                 <h1>Cambiar Contraseña</h1>
-                <div class="informationDiv">
-                    <p>Introduce el codigo enviado a tu email!</p>
+                <div id="infoDiv" class="informationDiv" runat="server">
+                    <p id="textDivInfo" runat="server">Introduce el codigo enviado a tu email!</p>
                     <div class="infoDIV">
                     </div>
                 </div>
@@ -45,6 +45,7 @@
                         <td colspan="2">
                             <asp:Label ID="Label1" runat="server" Text="Contraseña nueva:"></asp:Label>
                             <asp:RequiredFieldValidator ID="PassRequiredFieldValidator" runat="server" ErrorMessage="*" ControlToValidate="PasswordTBC" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:CustomValidator ID="PassSameOldNewValidator" runat="server" ErrorMessage="La contraseña es la misma que antes!" ForeColor="Red" ControlToValidate="PasswordTBC"></asp:CustomValidator>
                         </td>
                     </tr>
                     <tr>
@@ -61,6 +62,7 @@
                         <td colspan="2">
                             <asp:Label ID="Label2" runat="server" Text="Repite la contraseña:"></asp:Label>
                             <asp:RequiredFieldValidator ID="PassRRequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="PasswordTBCC" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:CustomValidator ID="PasswordsEValidators" runat="server" ErrorMessage="Password doesn't match!" ForeColor="Red" ControlToValidate="PasswordTBCC"></asp:CustomValidator>
                         </td>
                     </tr>
                     <tr>

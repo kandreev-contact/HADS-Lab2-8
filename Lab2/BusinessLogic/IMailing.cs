@@ -10,6 +10,6 @@ namespace BusinessLogic
     {
         void sendEmailRegister(String email, int id);
 
-        void sendEmailChangePassword(String email);
+        void sendEmailChangePassword(String email, int idPass);
     }
 }

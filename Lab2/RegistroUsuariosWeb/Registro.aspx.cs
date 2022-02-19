@@ -29,11 +29,12 @@ namespace RegistroUsuariosWeb
 
             bool v1 = passwordLengthValidation(password);
             bool v2 = passwordRepeatValidation(password, password2);
+            bool v3 = RadioRFieldValidator.IsValid;
 
             PassLengthValidator.IsValid = v1;
             PasswordsEValidators.IsValid = v2;
 
-            if (v2)
+            if (v2 && v3)
             {
                 int id = bll.generateNumConfirmation();
                 String email = EmailTBR.Text;

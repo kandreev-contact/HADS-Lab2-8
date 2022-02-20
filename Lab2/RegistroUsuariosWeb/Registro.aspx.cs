@@ -34,7 +34,7 @@ namespace RegistroUsuariosWeb
             PassLengthValidator.IsValid = v1;
             PasswordsEValidators.IsValid = v2;
 
-            if (v2 && v3)
+            if (v2 && v3 && v1)
             {
                 int id = bll.generateNumConfirmation();
                 String email = EmailTBR.Text;

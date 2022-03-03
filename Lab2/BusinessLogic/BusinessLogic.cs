@@ -239,5 +239,22 @@ namespace BusinessLogicLayer
                 return false;
             }
         }
+
+        public User getUser(string email, string password)
+        {
+
+            generalDAO.openConection();
+            User user = userDAO.getUser(email, password);
+            generalDAO.closeConnection();
+
+            if ((user is null) || (user.getEmail() is null) || (user.getName() is null) || (user.getSurname() is null) || (user.getRole() is null))
+            {
+                throw new Exception("Database Error - Entity Miss match!");
+            }
+            else
+            {
+                return user;
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntityLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,7 @@ namespace RegistroUsuariosWeb
     {
         private BusinessLogicLayer.BusinessLogic bll;
         // Check if in database and confirmed
-        // true -> goto home page
+        // true -> goto corresponding page
         // false -> show error message
 
         protected void Page_Load(object sender, EventArgs e)
@@ -27,11 +28,20 @@ namespace RegistroUsuariosWeb
 
             if (bll.checkConfirmed(email))
             {
-                // login
+                // login // check type of user
                 if (bll.login(email, password))
                 {
+                    User user = bll.getUser(email, password); // Session add
+                    if (user.getRole().Equals("Alumno"))
+                    {
+                        Response.Redirect("~/Alumnos/Estudiante.aspx");
+                    }
+                    else if (user.getRole().Equals("Profesor"))
+                    {
+                        Response.Redirect("~/Profesorado/Profesor.aspx");
+                    }
+                    // Testing purposes (Demo)
                     //LoginButton.PostBackUrl = "~/Home.aspx"; // ?
-                    Response.Redirect("~/Home.aspx");
                     divSend.Visible = false; // redirect to home
                 }
                 else

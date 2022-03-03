@@ -31,6 +31,14 @@ namespace EntityLayer
             this.codPass = 0;
         }
 
+        /// <summary>
+        /// Constructor vacio.
+        /// </summary>
+        public User()
+        {
+
+        }
+
         public void setConfirmed(bool b)
         {
             this.confirmed = b;

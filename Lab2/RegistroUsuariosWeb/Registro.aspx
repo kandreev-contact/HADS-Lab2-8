@@ -100,7 +100,7 @@
                         </td>
                         <td class="bottomRowsL">
                             <asp:RadioButtonList ID="RoleSelectRBL" runat="server">
-                                <asp:ListItem Text="Estudiante" Value="Estudiante" />
+                                <asp:ListItem Text="Estudiante" Value="Alumno" />
                                 <asp:ListItem Text="Profesor" Value="Profesor" />
                             </asp:RadioButtonList>
                         </td>

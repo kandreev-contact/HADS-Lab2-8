@@ -68,6 +68,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Alumnos\Estudiante.aspx" />
+    <Content Include="Alumnos\InstanciarTarea.aspx" />
+    <Content Include="Alumnos\VerTareasEstudiante.aspx" />
     <Content Include="CambiarPassword.aspx" />
     <Content Include="CamboarPasswordE.aspx" />
     <Content Include="Confirmar.aspx" />
@@ -81,10 +84,34 @@
     <Content Include="imgs\logo.png" />
     <Content Include="imgs\upvb.jpeg" />
     <Content Include="Inicio.aspx" />
+    <Content Include="Profesorado\GestionarTareas.aspx" />
+    <Content Include="Profesorado\InsertarTarea.aspx" />
+    <Content Include="Profesorado\Profesor.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alumnos\Estudiante.aspx.cs">
+      <DependentUpon>Estudiante.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Alumnos\Estudiante.aspx.designer.cs">
+      <DependentUpon>Estudiante.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Alumnos\InstanciarTarea.aspx.cs">
+      <DependentUpon>InstanciarTarea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Alumnos\InstanciarTarea.aspx.designer.cs">
+      <DependentUpon>InstanciarTarea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Alumnos\VerTareasEstudiante.aspx.cs">
+      <DependentUpon>VerTareasEstudiante.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Alumnos\VerTareasEstudiante.aspx.designer.cs">
+      <DependentUpon>VerTareasEstudiante.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CambiarPassword.aspx.cs">
       <DependentUpon>CambiarPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -120,6 +147,27 @@
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Profesorado\GestionarTareas.aspx.cs">
+      <DependentUpon>GestionarTareas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesorado\GestionarTareas.aspx.designer.cs">
+      <DependentUpon>GestionarTareas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesorado\InsertarTarea.aspx.cs">
+      <DependentUpon>InsertarTarea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesorado\InsertarTarea.aspx.designer.cs">
+      <DependentUpon>InsertarTarea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesorado\Profesor.aspx.cs">
+      <DependentUpon>Profesor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesorado\Profesor.aspx.designer.cs">
+      <DependentUpon>Profesor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registro.aspx.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
@@ -144,6 +192,10 @@
     <ProjectReference Include="..\BusinessLogic\BusinessLogicLayer.csproj">
       <Project>{1d6fca25-d87d-48b3-b909-ca1c94194049}</Project>
       <Name>BusinessLogicLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataStructure\EntityLayer.csproj">
+      <Project>{FF3DC13A-AB2C-450B-92EF-3AA52D461C43}</Project>
+      <Name>EntityLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

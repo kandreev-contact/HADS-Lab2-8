@@ -28,5 +28,7 @@ namespace DataAccessLayer
         void changeUserPassword(String email, String newPassword);
 
         bool checkUserPassword(String email, String newPassword);
+
+        User getUser(String email, String password);
     }
 }

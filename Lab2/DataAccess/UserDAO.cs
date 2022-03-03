@@ -27,7 +27,7 @@ namespace DataAccessLayer
         {
             try
             {
-                string insertQuery = "insert into Usuarios(email,nombre,apellidos,numconfir,confirmado,tipo,pass,codpass) values (@email,@name,@surname,@numConfirmation,@confirmation,@role,@password,@codpass)";
+                string insertQuery = "insert into Usuario(email,nombre,apellidos,numconfir,confirmado,tipo,pass,codpass) values (@email,@name,@surname,@numConfirmation,@confirmation,@role,@password,@codpass)";
 
                 sqlCommand = new SqlCommand(insertQuery, this.sqlConnection);
 
@@ -51,7 +51,7 @@ namespace DataAccessLayer
         {
             try
             {
-                string selectQuery = "select count(*) from Usuarios where email=@email";
+                string selectQuery = "select count(*) from Usuario where email=@email";
 
                 sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
 
@@ -79,7 +79,7 @@ namespace DataAccessLayer
         {
             try
             {
-                string selectQuery = "select count(*) from Usuarios where email=@email and numconfir=@numconf";
+                string selectQuery = "select count(*) from Usuario where email=@email and numconfir=@numconf";
 
                 sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
 
@@ -107,7 +107,7 @@ namespace DataAccessLayer
         {
             try
             {
-                string updateQuery = "update Usuarios set confirmado=@confirmation where email=@email";
+                string updateQuery = "update Usuario set confirmado=@confirmation where email=@email";
 
                 sqlCommand = new SqlCommand(updateQuery, this.sqlConnection);
 
@@ -127,7 +127,7 @@ namespace DataAccessLayer
         {
             try
             {
-                string selectQuery = "select count(*) from Usuarios where email=@email and confirmado=@conf";
+                string selectQuery = "select count(*) from Usuario where email=@email and confirmado=@conf";
 
                 sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
 
@@ -155,7 +155,7 @@ namespace DataAccessLayer
         {
             try
             {
-                string selectQuery = "select count(*) from Usuarios where email=@email and pass=@password";
+                string selectQuery = "select count(*) from Usuario where email=@email and pass=@password";
 
                 sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
 
@@ -183,7 +183,7 @@ namespace DataAccessLayer
         {
             try
             {
-                string updateQuery = "update Usuarios set codpass=@codPass where email=@email";
+                string updateQuery = "update Usuario set codpass=@codPass where email=@email";
 
                 sqlCommand = new SqlCommand(updateQuery, this.sqlConnection);
 
@@ -203,7 +203,7 @@ namespace DataAccessLayer
         {
             try
             {
-                string selectQuery = "select count(*) from Usuarios where email=@email and codpass=@codPass";
+                string selectQuery = "select count(*) from Usuario where email=@email and codpass=@codPass";
 
                 sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
 
@@ -231,7 +231,7 @@ namespace DataAccessLayer
         {
             try
             {
-                string updateQuery = "update Usuarios set pass=@newPass where email=@email";
+                string updateQuery = "update Usuario set pass=@newPass where email=@email";
 
                 sqlCommand = new SqlCommand(updateQuery, this.sqlConnection);
 
@@ -251,7 +251,7 @@ namespace DataAccessLayer
         {
             try
             {
-                string selectQuery = "select count(*) from Usuarios where email=@email and pass=@newPassword";
+                string selectQuery = "select count(*) from Usuario where email=@email and pass=@newPassword";
 
                 sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
 
@@ -268,6 +268,37 @@ namespace DataAccessLayer
                 {
                     return true;
                 }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Database Query error! " + ex.ToString());
+            }
+        }
+
+        public User getUser(string email, string password)
+        {
+
+            User user = new User();
+            try
+            {
+                string selectQuery = "select * from Usuario where email=@email and pass=@pass";
+
+                sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
+
+                sqlCommand.Parameters.AddWithValue("@email", email);
+                sqlCommand.Parameters.AddWithValue("@pass", password);
+
+                using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        user.setEmail(reader["email"].ToString());
+                        user.setName(reader["nombre"].ToString());
+                        user.setSurname(reader["apellidos"].ToString());
+                        user.setRole(reader["tipo"].ToString());
+                    }
+                }
+                return user;
             }
             catch (Exception ex)
             {

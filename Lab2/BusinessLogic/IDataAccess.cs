@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntityLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace BusinessLogic
 
         bool checkConfirmed(String email);
 
-        bool login(String email, String password); // can change in the feature
+        bool login(String email, String password);
 
         bool checkUserRegistered(String email);
 
@@ -25,6 +26,8 @@ namespace BusinessLogic
         bool checkUserCodePass(String email, int codpass);
 
         bool checkUserPassword(String email, String newPassword);
+
+        User getUser(String email, String password);
 
     }
 }

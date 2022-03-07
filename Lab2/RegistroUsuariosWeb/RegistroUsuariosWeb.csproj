@@ -78,6 +78,7 @@
     <Content Include="css\confirmarStyle.css" />
     <Content Include="css\cpasswordEStyle.css" />
     <Content Include="css\cpasswordStyle.css" />
+    <Content Include="css\profesorStyle.css" />
     <Content Include="css\registroStyle.css" />
     <Content Include="css\inicioStyle.css" />
     <Content Include="Home.aspx" />

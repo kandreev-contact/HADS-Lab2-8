@@ -19,6 +19,10 @@ namespace EntityLayer
         private int codPass;
         private bool confirmed;
 
+        private List<EstudianteTarea> tareas;
+        private List<ProfesorGrupo> profesores;
+        private List<EstudianteGrupo> estudiantes;
+
         public User(String email, String password, String name, String surname, String role, int numConfirmation)
         {
             this.emailKey = email;

@@ -28,10 +28,12 @@ namespace RegistroUsuariosWeb
 
             if (bll.checkConfirmed(email))
             {
-                // login // check type of user
+                // login 
                 if (bll.login(email, password))
                 {
-                    User user = bll.getUser(email, password); // Session add
+                    User user = bll.getUser(email, password);
+                    // Add session email
+                    Session.Add("email", user.getEmail());
                     if (user.getRole().Equals("Alumno"))
                     {
                         Response.Redirect("~/Alumnos/Estudiante.aspx");
@@ -40,9 +42,7 @@ namespace RegistroUsuariosWeb
                     {
                         Response.Redirect("~/Profesorado/Profesor.aspx");
                     }
-                    // Testing purposes (Demo)
-                    //LoginButton.PostBackUrl = "~/Home.aspx"; // ?
-                    divSend.Visible = false; // redirect to home
+                    divSend.Visible = false;
                 }
                 else
                 {

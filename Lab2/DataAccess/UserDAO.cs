@@ -281,7 +281,7 @@ namespace DataAccessLayer
             User user = new User();
             try
             {
-                string selectQuery = "select * from Usuario where email=@email and pass=@pass";
+                string selectQuery = "select email,nombre,apellidos,tipo from Usuario where email=@email and pass=@pass";
 
                 sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
 

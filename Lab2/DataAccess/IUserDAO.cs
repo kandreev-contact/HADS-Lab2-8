@@ -36,5 +36,9 @@ namespace DataAccessLayer
         bool checkExistingTarea(TareaGenerica tarea);
 
         void registerTarea(TareaGenerica tarea);
+
+        DataSet getSubjects(String alumno);
+
+        DataTable getTareasGenericas(string alumno, string codAsig);
     }
 }

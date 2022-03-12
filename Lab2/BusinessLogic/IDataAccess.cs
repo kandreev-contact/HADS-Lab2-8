@@ -1,6 +1,7 @@
 ﻿using EntityLayer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,10 @@ namespace BusinessLogic
         User getUser(String email, String password);
 
         bool registerTarea(TareaGenerica tg);
+
+        DataSet getSubjects(String alumno);
+
+        DataTable getTareasGenericas(String alumno, String codAsig);
 
     }
 }

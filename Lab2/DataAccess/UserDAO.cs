@@ -307,6 +307,8 @@ namespace DataAccessLayer
             }
         }
 
+
+
         public bool checkExistingTarea(TareaGenerica tarea)
         {
             try
@@ -350,6 +352,75 @@ namespace DataAccessLayer
                 sqlCommand.Parameters.AddWithValue("@explotacion", tarea.getExplotacion());
                 sqlCommand.Parameters.AddWithValue("@tipoTarea", tarea.getTipoTarea());
                 sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Database Query error! " + ex.ToString());
+            }
+        }
+
+        public DataSet getSubjects(string alumno)
+        {
+            try
+            {
+                #region selectQuery
+                string selectQuery = "select codigoAsig from GrupoClase inner join EstudianteGrupo on " +
+                    "EstudianteGrupo.grupo=GrupoClase.codigo where email=@email";
+
+                sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@email", alumno);
+                #endregion
+
+                #region DataAdapter
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = sqlCommand;
+                #endregion
+
+                #region DataSet
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                #endregion
+
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Database Query error! " + ex.ToString());
+            }
+
+        }
+
+        public DataTable getTareasGenericas(string alumno, string codAsig)
+        {
+            try
+            {
+                #region selectQuery
+                string selectQuery = "select distinct TareaGenerica.codigo,TareaGenerica.descripcion,TareaGenerica.hEstimadas,TareaGenerica.tipoTarea " +
+                   "from TareaGenerica " +
+                   " inner join (GrupoClase inner join EstudianteGrupo on EstudianteGrupo.grupo=GrupoClase.codigo) on TareaGenerica.codAsig=GrupoClase.codigoAsig " +
+                   "where EstudianteGrupo.email=@email and TareaGenerica.codAsig=@codAsig and  TareaGenerica.explotacion=1 and " +
+                   "not exists ( select EstudianteTarea.codTarea from EstudianteTarea where TareaGenerica.codigo=EstudianteTarea.codTarea)";
+
+                sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@email", alumno);
+                sqlCommand.Parameters.AddWithValue("@codAsig", codAsig);
+                #endregion
+
+                #region DataAdapter
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = sqlCommand;
+                #endregion
+
+                #region CommandBuilder
+                SqlCommandBuilder cb = new SqlCommandBuilder(da);
+                #endregion
+
+                #region DataSet
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                #endregion
+
+                return ds.Tables[0];
             }
             catch (Exception ex)
             {

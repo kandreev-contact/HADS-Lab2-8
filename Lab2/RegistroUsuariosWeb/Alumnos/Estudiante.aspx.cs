@@ -11,7 +11,27 @@ namespace RegistroUsuariosWeb.Alumnos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                HelloMsg.InnerText = "Bienvenido de nuevo " + Session["name"].ToString();
 
+            }
+            catch (Exception)
+            {
+                HelloMsg.InnerText = "Entrada sin sesion... ";
+            }
+        }
+
+        protected void tareasButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("./VerTareasEstudiante.aspx");
+        }
+
+        protected void cerrarSesionButton_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+
+            Response.Redirect("../Inicio.aspx"); // Msg to confirm exit
         }
     }
 }

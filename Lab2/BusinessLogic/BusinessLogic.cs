@@ -5,6 +5,7 @@ using System.Windows;
 
 using DataAccessLayer;
 using EntityLayer;
+using System.Data;
 
 namespace BusinessLogicLayer
 {
@@ -273,6 +274,22 @@ namespace BusinessLogicLayer
                 generalDAO.closeConnection();
                 return false;
             }
+        }
+
+        public DataSet getSubjects(string alumno)
+        {
+            generalDAO.openConection();
+            DataSet ds = userDAO.getSubjects(alumno);
+            generalDAO.closeConnection();
+            return ds;
+        }
+
+        public DataTable getTareasGenericas(string alumno, string codAsig)
+        {
+            generalDAO.openConection();
+            DataTable dt = userDAO.getTareasGenericas(alumno, codAsig);
+            generalDAO.closeConnection();
+            return dt;
         }
     }
 }

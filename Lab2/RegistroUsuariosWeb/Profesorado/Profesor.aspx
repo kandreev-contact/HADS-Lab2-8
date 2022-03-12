@@ -16,11 +16,11 @@
                 <table id="FunctionsProf">
                     <tr>
                         <td>
-                            <asp:Button class="functionsButtons" ID="tareasButton" runat="server" Text="Tareas" /></td>
+                            <asp:Button class="functionsButtons" ID="tareasButton" runat="server" Text="Tareas" OnClick="tareasButton_Click" /></td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:Button class="functionsButtons" ID="estadisticaButton" runat="server" Text="Estadisticas" /></td>
+                            <asp:Button class="functionsButtons" ID="estadisticaButton" runat="server" Text="Estadisticas" disabled="true"/></td>
                     </tr>
                     <tr>
                         <td>
@@ -30,6 +30,10 @@
                         <td>
                             <asp:Button class="functionsButtons" ID="exportarButton" runat="server" Text="Exportar" disabled="true" /></td>
                     </tr>
+                    <tr>
+                        <td>
+                            <asp:Button class="functionsButtons" ID="cerrarSesionButton" runat="server" Text="Cerrar Sesion" OnClick="cerrarSesionButton_Click"/></td>
+                    </tr>
                 </table>
             </div>
             <div class="header">
@@ -38,7 +42,7 @@
 
             <div class="loginBox">
                 <h1 id="headerConfirmation" runat="server">Gestion Web de Tareas-Dedicacion</h1>
-                <p>cosas func</p>
+                <p id="HelloMsg" runat="server">Bienvenido de nuevo</p>
             </div>
 
 

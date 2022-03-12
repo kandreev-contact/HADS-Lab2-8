@@ -58,6 +58,7 @@ namespace BusinessLogicLayer
             }
         }
 
+
         public bool login(string email, string password)
         {
 
@@ -254,6 +255,23 @@ namespace BusinessLogicLayer
             else
             {
                 return user;
+            }
+        }
+
+        public bool registerTarea(TareaGenerica tg)
+        {
+            generalDAO.openConection();
+            if (!userDAO.checkExistingTarea(tg))
+            {
+                // Register Tarea
+                userDAO.registerTarea(tg);
+                generalDAO.closeConnection();
+                return true;
+            }
+            else
+            {
+                generalDAO.closeConnection();
+                return false;
             }
         }
     }

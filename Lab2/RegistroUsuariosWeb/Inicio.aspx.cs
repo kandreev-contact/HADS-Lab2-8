@@ -32,8 +32,11 @@ namespace RegistroUsuariosWeb
                 if (bll.login(email, password))
                 {
                     User user = bll.getUser(email, password);
-                    // Add session email
+                    // Add session email and name
                     Session.Add("email", user.getEmail());
+                    Session.Add("name", user.getName());
+                    Session.Add("role", user.getRole());
+
                     if (user.getRole().Equals("Alumno"))
                     {
                         Response.Redirect("~/Alumnos/Estudiante.aspx");

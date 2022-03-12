@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace DataAccessLayer
 {
@@ -30,5 +31,10 @@ namespace DataAccessLayer
         bool checkUserPassword(String email, String newPassword);
 
         User getUser(String email, String password);
+
+
+        bool checkExistingTarea(TareaGenerica tarea);
+
+        void registerTarea(TareaGenerica tarea);
     }
 }

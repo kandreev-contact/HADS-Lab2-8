@@ -29,5 +29,7 @@ namespace BusinessLogic
 
         User getUser(String email, String password);
 
+        bool registerTarea(TareaGenerica tg);
+
     }
 }

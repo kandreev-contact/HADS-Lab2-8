@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Data;
 
 namespace DataAccessLayer
 {
@@ -299,6 +300,56 @@ namespace DataAccessLayer
                     }
                 }
                 return user;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Database Query error! " + ex.ToString());
+            }
+        }
+
+        public bool checkExistingTarea(TareaGenerica tarea)
+        {
+            try
+            {
+                string selectQuery = "select count(*) from TareaGenerica where codigo=@codigo";
+
+                sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
+
+                sqlCommand.Parameters.AddWithValue("@codigo", tarea.getCodigo());
+
+                int rowsAffected = Convert.ToInt32(sqlCommand.ExecuteScalar());
+
+                if (rowsAffected == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Database Query error! " + ex.ToString());
+            }
+        }
+
+        public void registerTarea(TareaGenerica tarea)
+        {
+
+            try
+            {
+                string insertQuery = "insert into TareaGenerica(codigo,descripcion,codAsig,hEstimadas,explotacion,tipoTarea) values (@codigo,@descripcion,@codAsig,@hEstimadas,@explotacion,@tipoTarea)";
+
+                sqlCommand = new SqlCommand(insertQuery, this.sqlConnection);
+
+                sqlCommand.Parameters.AddWithValue("@codigo", tarea.getCodigo());
+                sqlCommand.Parameters.AddWithValue("@descripcion", tarea.getDescription());
+                sqlCommand.Parameters.AddWithValue("@codAsig", tarea.getCodAsignatura());
+                sqlCommand.Parameters.AddWithValue("@hEstimadas", tarea.getHEstimadas());
+                sqlCommand.Parameters.AddWithValue("@explotacion", tarea.getExplotacion());
+                sqlCommand.Parameters.AddWithValue("@tipoTarea", tarea.getTipoTarea());
+                sqlCommand.ExecuteNonQuery();
             }
             catch (Exception ex)
             {

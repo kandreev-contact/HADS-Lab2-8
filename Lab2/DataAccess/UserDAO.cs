@@ -485,9 +485,10 @@ namespace DataAccessLayer
         {
             try
             {
-                string selectQuery = "select count(*) from EstudianteTarea where codTarea=@codigoTarea";
+                //string selectQuery = "select count(*) from EstudianteTarea where codTarea=@codigoTarea";
 
-                sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
+                sqlCommand = new SqlCommand("getTareas", this.sqlConnection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
 
                 sqlCommand.Parameters.AddWithValue("@codigoTarea", codTarea);
 

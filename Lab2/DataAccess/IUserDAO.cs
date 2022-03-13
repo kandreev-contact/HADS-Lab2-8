@@ -40,5 +40,11 @@ namespace DataAccessLayer
         DataSet getSubjects(String alumno);
 
         DataTable getTareasGenericas(string alumno, string codAsig);
+
+        DataTable getTareasEstudiante(string alumno);
+
+        void updateTareasEstudiante(string email, string codTarea, string he, int hrc);
+
+        bool checkExistingTareaEstudiante(string codTarea);
     }
 }

@@ -36,5 +36,9 @@ namespace BusinessLogic
 
         DataTable getTareasGenericas(String alumno, String codAsig);
 
+        DataTable getTareasEstudiante(String email);
+
+        bool updateTareasEstudiante(string email, string codTarea, string he, int hrc);
+
     }
 }

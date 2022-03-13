@@ -41,6 +41,8 @@ namespace BusinessLogicLayer
             return (int)rId;
         }
 
+
+
         public bool registerUser(string email, string password, string name, string surname, string role, int numConfirmation)
         {
             generalDAO.openConection();
@@ -109,6 +111,8 @@ namespace BusinessLogicLayer
                 throw new Exception("Mailing error! " + ex.ToString());
             }
         }
+
+
 
         public void sendEmailChangePassword(string email, int idPass)
         {
@@ -290,6 +294,31 @@ namespace BusinessLogicLayer
             DataTable dt = userDAO.getTareasGenericas(alumno, codAsig);
             generalDAO.closeConnection();
             return dt;
+        }
+
+        public DataTable getTareasEstudiante(string email)
+        {
+            generalDAO.openConection();
+            DataTable dt = userDAO.getTareasEstudiante(email);
+            generalDAO.closeConnection();
+            return dt;
+        }
+
+        public bool updateTareasEstudiante(string email, string codTarea, string he, int hrc)
+        {
+            generalDAO.openConection();
+            if (!userDAO.checkExistingTareaEstudiante(codTarea))
+            {
+                // Register Tarea
+                userDAO.updateTareasEstudiante(email, codTarea, he, hrc);
+                generalDAO.closeConnection();
+                return true;
+            }
+            else
+            {
+                generalDAO.closeConnection();
+                return false;
+            }
         }
     }
 }

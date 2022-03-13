@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows;
 
 namespace RegistroUsuariosWeb.Alumnos
 {
@@ -28,19 +29,14 @@ namespace RegistroUsuariosWeb.Alumnos
                     asignaturaDDL.DataBind();
 
 
-                    DataTable dt = bll.getTareasGenericas(email, asignaturaDDL.SelectedValue);
-                    tareasEstudianteGV.DataSource = dt;
-                    tareasEstudianteGV.DataBind();
+                    gridView();
                 }
             }
             else
             {
                 if (!(Session["email"] is null))
                 {
-                    String email = Session["email"].ToString();
-                    DataTable dt = bll.getTareasGenericas(email, asignaturaDDL.SelectedValue);
-                    tareasEstudianteGV.DataSource = dt;
-                    tareasEstudianteGV.DataBind();
+                    gridView();
                 }
             }
         }
@@ -59,7 +55,23 @@ namespace RegistroUsuariosWeb.Alumnos
 
         protected void tareasEstudianteGV_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Response.Redirect("./InstanciarTarea.aspx?codigo=tarea&he=3");
+            // Pasar email(Session), he, codTarea, indexGV
+            // Coger las hEstimadas
+            string he = tareasEstudianteGV.SelectedRow.Cells[3].Text;
+            string ct = tareasEstudianteGV.SelectedRow.Cells[1].Text;
+            string index = tareasEstudianteGV.SelectedRow.RowIndex.ToString();
+
+            //MessageBox.Show("he " + he + " codTarea " + ct + " index " + index);
+
+            Response.Redirect($"./InstanciarTarea.aspx?codTarea={ct}&he={he}&indexGV={index}");
+        }
+
+        private void gridView()
+        {
+            String email = Session["email"].ToString();
+            DataTable dt = bll.getTareasGenericas(email, asignaturaDDL.SelectedValue);
+            tareasEstudianteGV.DataSource = dt;
+            tareasEstudianteGV.DataBind();
         }
     }
 }

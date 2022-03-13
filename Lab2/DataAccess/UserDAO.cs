@@ -427,5 +427,85 @@ namespace DataAccessLayer
                 throw new Exception("Database Query error! " + ex.ToString());
             }
         }
+
+        public DataTable getTareasEstudiante(string email)
+        {
+            try
+            {
+                #region selectQuery
+                string selectQuery = "select EstudianteTarea.codTarea,EstudianteTarea.hEstimadas,EstudianteTarea.hReales from EstudianteTarea where email=@email";
+
+                sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@email", email);
+                #endregion
+
+                #region DataAdapter
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = sqlCommand;
+                #endregion
+
+                #region CommandBuilder
+                SqlCommandBuilder cb = new SqlCommandBuilder(da);
+                #endregion
+
+                #region DataSet
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                #endregion
+
+                return ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Database Query error! " + ex.ToString());
+            }
+        }
+
+        public void updateTareasEstudiante(string email, string codTarea, string he, int hrc) // Corregir acceptar EstudianteTarea entity
+        {
+            try
+            {
+                string insertQuery = "insert into EstudianteTarea(email,codTarea,hEstimadas,hReales) values (@email,@codTarea,@he,@hr)";
+
+                sqlCommand = new SqlCommand(insertQuery, this.sqlConnection);
+
+                sqlCommand.Parameters.AddWithValue("@email", email);
+                sqlCommand.Parameters.AddWithValue("@codTarea", codTarea);
+                sqlCommand.Parameters.AddWithValue("@he", he);
+                sqlCommand.Parameters.AddWithValue("@hr", hrc);
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Database Query error! " + ex.ToString());
+            }
+        }
+
+        public bool checkExistingTareaEstudiante(string codTarea)
+        {
+            try
+            {
+                string selectQuery = "select count(*) from EstudianteTarea where codTarea=@codigoTarea";
+
+                sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
+
+                sqlCommand.Parameters.AddWithValue("@codigoTarea", codTarea);
+
+                int rowsAffected = Convert.ToInt32(sqlCommand.ExecuteScalar());
+
+                if (rowsAffected == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Database Query error! " + ex.ToString());
+            }
+        }
     }
 }

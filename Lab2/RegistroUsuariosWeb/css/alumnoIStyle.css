@@ -1,0 +1,79 @@
+﻿
+
+#FunctionsAlumno {
+    padding-top: 5px;
+}
+
+    #FunctionsAlumno td, #menuAlumno td {
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+
+.functionsButtons {
+    background-color: orange;
+    border: none;
+    border-radius: 15px;
+    color: black;
+    text-align: center;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    box-shadow: 0 8px 18px 0 rgba(0,0,0,0.2), 0 6px 8px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}
+
+.functionsButtons {
+    background-color: white;
+    color: black;
+    border: 2px solid orange;
+}
+
+    .functionsButtons:hover {
+        background-color: orange;
+        color: white;
+    }
+
+
+
+#asignaturaDDL {
+    width: 150px;
+}
+
+.headerLeft {
+    background-color: white;
+    border: 5px solid orange;
+    height: 465px;
+    color: black;
+    width: 260px;
+    margin: 30px;
+    margin-top: 220px;
+    position: fixed;
+    z-index: 8;
+    box-shadow: 0 4px 28px 0 rgba(0,0,0,0.19), 0 6px 28px 0 rgba(0,0,0,0.29);
+}
+
+
+.loginBox {
+    background-color: white;
+    /*border-left: 5px solid orange;*/
+    border: 5px solid orange;
+    position: fixed;
+    margin: 50px;
+    margin-top: 220px;
+    margin-left: 320px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 10px;
+    width: 1450px;
+    height: 450px;
+    color: black;
+    z-index: 8;
+    box-shadow: 30px 20px 38px 0 rgba(0,0,0,0.19), 40px 40px 28px 0 rgba(0,0,0,0.29);
+}
+
+    .loginbox h1 {
+        text-align: center;
+    }

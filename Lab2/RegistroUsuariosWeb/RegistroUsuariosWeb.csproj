@@ -74,6 +74,7 @@
     <Content Include="CambiarPassword.aspx" />
     <Content Include="CamboarPasswordE.aspx" />
     <Content Include="Confirmar.aspx" />
+    <Content Include="css\alumnoIStyle.css" />
     <Content Include="css\alumnoStyle.css" />
     <Content Include="css\CommonStyle.css" />
     <Content Include="css\confirmarStyle.css" />

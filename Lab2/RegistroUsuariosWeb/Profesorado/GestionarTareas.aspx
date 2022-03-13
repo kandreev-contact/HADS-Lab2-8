@@ -21,7 +21,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:Button class="functionsButtons" ID="estadisticaButton" runat="server" Text="Estadisticas" disabled="true" /></td>
+                                <asp:Button class="functionsButtons" ID="estadisticaButton" runat="server" Text="Estadisticas" OnClick="estadisticaButton_Click" /></td>
                         </tr>
                         <tr>
                             <td>

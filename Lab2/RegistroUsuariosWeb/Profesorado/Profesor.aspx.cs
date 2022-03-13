@@ -36,5 +36,10 @@ namespace RegistroUsuariosWeb.Profesorado
         {
             Response.Redirect("./GestionarTareas.aspx");
         }
+
+        protected void estadisticaButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("./EstadisticasEstudiante.aspx");
+        }
     }
 }

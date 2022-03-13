@@ -60,5 +60,10 @@ namespace RegistroUsuariosWeb.Profesorado
             }
 
         }
+
+        protected void estadisticaButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("./EstadisticasEstudiante.aspx");
+        }
     }
 }

@@ -45,6 +45,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -80,6 +81,7 @@
     <Content Include="css\confirmarStyle.css" />
     <Content Include="css\cpasswordEStyle.css" />
     <Content Include="css\cpasswordStyle.css" />
+    <Content Include="css\profesorEStyle.css" />
     <Content Include="css\profesorIStyle.css" />
     <Content Include="css\profesorStyle.css" />
     <Content Include="css\registroStyle.css" />
@@ -88,6 +90,7 @@
     <Content Include="imgs\logo.png" />
     <Content Include="imgs\upvb.jpeg" />
     <Content Include="Inicio.aspx" />
+    <Content Include="Profesorado\EstadisticasEstudiante.aspx" />
     <Content Include="Profesorado\GestionarTareas.aspx" />
     <Content Include="Profesorado\InsertarTarea.aspx" />
     <Content Include="Profesorado\Profesor.aspx" />
@@ -150,6 +153,13 @@
     </Compile>
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesorado\EstadisticasEstudiante.aspx.cs">
+      <DependentUpon>EstadisticasEstudiante.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesorado\EstadisticasEstudiante.aspx.designer.cs">
+      <DependentUpon>EstadisticasEstudiante.aspx</DependentUpon>
     </Compile>
     <Compile Include="Profesorado\GestionarTareas.aspx.cs">
       <DependentUpon>GestionarTareas.aspx</DependentUpon>

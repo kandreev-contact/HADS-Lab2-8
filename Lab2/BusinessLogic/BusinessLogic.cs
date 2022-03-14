@@ -288,6 +288,14 @@ namespace BusinessLogicLayer
             return ds;
         }
 
+        public DataSet getTareasGenericas(string alumno)
+        {
+            generalDAO.openConection();
+            DataSet ds = userDAO.getTareasGenericas(alumno);
+            generalDAO.closeConnection();
+            return ds;
+        }
+
         public DataTable getTareasGenericas(string alumno, string codAsig)
         {
             generalDAO.openConection();

@@ -33,6 +33,7 @@ namespace BusinessLogic
         bool registerTarea(TareaGenerica tg);
 
         DataSet getSubjects(String alumno);
+        DataSet getTareasGenericas(string alumno);
 
         DataTable getTareasGenericas(String alumno, String codAsig);
 

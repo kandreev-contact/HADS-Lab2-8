@@ -38,6 +38,7 @@ namespace DataAccessLayer
         void registerTarea(TareaGenerica tarea);
 
         DataSet getSubjects(String alumno);
+        DataSet getTareasGenericas(string alumno);
 
         DataTable getTareasGenericas(string alumno, string codAsig);
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,31 +14,39 @@ namespace RegistroUsuariosWeb.Alumnos
     {
         BusinessLogicLayer.BusinessLogic bll;
 
-        protected void Page_Load(object sender, EventArgs e) // Tiene que corregirse limpiar
+        protected void Page_Load(object sender, EventArgs e)
         {
             bll = new BusinessLogicLayer.BusinessLogic();
-            if (!Page.IsPostBack)
+            bool firstTime = Page.IsPostBack;
+
+            if (!firstTime)
             {
-                if (!(Session["email"] is null))
-                {
-                    String email = Session["email"].ToString();
+                String email = Session["email"].ToString();
 
-                    DataSet ds = bll.getSubjects(email);
-                    asignaturaDDL.DataTextField = ds.Tables[0].Columns[0].ToString();
-                    asignaturaDDL.DataValueField = ds.Tables[0].Columns[0].ToString();
-                    asignaturaDDL.DataSource = ds.Tables[0];
-                    asignaturaDDL.DataBind();
+                // Cargar las asignaturas
+                DataSet ds1 = bll.getSubjects(email);
+                asignaturaDDL.DataTextField = ds1.Tables[0].Columns[0].ToString();
+                asignaturaDDL.DataValueField = ds1.Tables[0].Columns[0].ToString();
+                asignaturaDDL.DataSource = ds1.Tables[0];
+                asignaturaDDL.DataBind();
 
 
-                    gridView();
-                }
+                /* SOLO UN ACCESO A LA BD */
+                // Cargar las tareas en el grid view 
+                DataSet ds2 = bll.getTareasGenericas(email); // Cargar las tareas genericas del alumno
+                DataTable dt = ds2.Tables[0];
+                DataView dv = new DataView(dt);
+
+                updateGrid(dv);
+
+                Session["view"] = dv;
             }
             else
             {
-                if (!(Session["email"] is null))
-                {
-                    gridView();
-                }
+                // Hacer un filtro de la GridView , tenemos Session table
+                // Filtramos solo las asugnatura seleccionada el row/column de asig
+                DataView dv = (DataView)Session["view"];
+                updateGrid(dv);
             }
         }
 
@@ -55,23 +64,22 @@ namespace RegistroUsuariosWeb.Alumnos
 
         protected void tareasEstudianteGV_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Pasar email(Session), he, codTarea, indexGV
-            // Coger las hEstimadas
             string he = tareasEstudianteGV.SelectedRow.Cells[3].Text;
             string ct = tareasEstudianteGV.SelectedRow.Cells[1].Text;
-            string index = tareasEstudianteGV.SelectedRow.RowIndex.ToString();
-
-            //MessageBox.Show("he " + he + " codTarea " + ct + " index " + index);
+            string index = tareasEstudianteGV.SelectedRow.RowIndex.ToString(); // Para el uso en la tabla metodos (Update & AcceptChanges)
 
             Response.Redirect($"./InstanciarTarea.aspx?codTarea={ct}&he={he}&indexGV={index}");
         }
 
-        private void gridView()
+        private void updateGrid(DataView dv)
         {
-            String email = Session["email"].ToString();
-            DataTable dt = bll.getTareasGenericas(email, asignaturaDDL.SelectedValue);
+            string subject = asignaturaDDL.SelectedValue;
+            dv.RowFilter = $"codAsig = '{subject}'";
+            DataTable dt = dv.ToTable();
+            dt.Columns.Remove("codAsig");
             tareasEstudianteGV.DataSource = dt;
             tareasEstudianteGV.DataBind();
         }
+
     }
 }

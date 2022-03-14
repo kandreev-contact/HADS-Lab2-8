@@ -390,6 +390,44 @@ namespace DataAccessLayer
 
         }
 
+        public DataSet getTareasGenericas(string alumno)
+        {
+            try
+            {
+                #region selectQuery
+                string selectQuery = "select distinct TareaGenerica.codigo,TareaGenerica.codAsig,TareaGenerica.descripcion,TareaGenerica.hEstimadas,TareaGenerica.tipoTarea " +
+                   "from TareaGenerica " +
+                   " inner join (GrupoClase inner join EstudianteGrupo on EstudianteGrupo.grupo=GrupoClase.codigo) on TareaGenerica.codAsig=GrupoClase.codigoAsig " +
+                   "where EstudianteGrupo.email=@email and  TareaGenerica.explotacion=1 and " +
+                   "not exists ( select EstudianteTarea.codTarea from EstudianteTarea where TareaGenerica.codigo=EstudianteTarea.codTarea)";
+
+                sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@email", alumno);
+                #endregion
+
+                #region DataAdapter
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = sqlCommand;
+                #endregion
+
+                #region CommandBuilder
+                SqlCommandBuilder cb = new SqlCommandBuilder(da);
+                #endregion
+
+                #region DataSet
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                #endregion
+
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Database Query error! " + ex.ToString());
+            }
+        }
+
+
         public DataTable getTareasGenericas(string alumno, string codAsig)
         {
             try

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace DataAccessLayer
 {
@@ -42,7 +43,7 @@ namespace DataAccessLayer
 
         DataTable getTareasGenericas(string alumno, string codAsig);
 
-        DataTable getTareasEstudiante(string alumno);
+        (DataTable, SqlDataAdapter) getTareasEstudiante(string alumno);
 
         void updateTareasEstudiante(string email, string codTarea, string he, int hrc);
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -27,7 +28,6 @@ namespace RegistroUsuariosWeb.Alumnos
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
 
             feedbackTareaL.Visible = false;
             bll = new BusinessLogicLayer.BusinessLogic();
@@ -45,15 +45,19 @@ namespace RegistroUsuariosWeb.Alumnos
                 horasETB.Text = he;
 
                 // Init GridView, solo un acceso a la BD
-                DataTable dt = bll.getTareasEstudiante(email);
+                SqlDataAdapter adapter;
+                DataTable dt;
+                (dt, adapter) = bll.getTareasEstudiante(email);
 
                 updateGrid(dt);
 
                 Session["table"] = dt;
+                Session["adapter"] = adapter;
             }
             else
             {
                 DataTable dt = (DataTable)Session["table"];
+                SqlDataAdapter adapter = (SqlDataAdapter)Session["adapter"];
                 updateGrid(dt);
             }
         }
@@ -72,8 +76,8 @@ namespace RegistroUsuariosWeb.Alumnos
 
         protected void instanciarTareaButton_Click(object sender, EventArgs e)
         {
-            // Codigo DataAccess update table
             String hr = horasRTB.Text;
+            // Obtain the datatable
             DataTable dt = (DataTable)Session["table"];
 
             if (!hr.Equals(""))
@@ -81,64 +85,23 @@ namespace RegistroUsuariosWeb.Alumnos
                 feedbackTareaL.Visible = true;
                 int hrc = int.Parse(hr);
 
-                DataRow dr = dt.NewRow();
-                dr["codTarea"] = codTarea;
-                dr["hEstimadas"] = he;
-                dr["hReales"] = hrc;
-
-                dt.Rows.Add(dr);
-
-                //updateGrid(dt); // Problema que pasa con el Email ???
-
-                // DataTable cambios con email
-                dt.Columns.Add("email", typeof(String)).SetOrdinal(0);
-                foreach (DataRow row in dt.Rows)
-                {
-                    //need to set value to NewColumn column
-                    row["email"] = email;   // or set it to some other value
-                }
-
-                // save changes
-
-                // adapter = Session("adapter");
-                // adapter.Update(ds,"TE");
-                // ds.AcceptChanges();
-
-                if (dt.HasErrors)
+                // Add new Row
+                bool changed;
+                (dt, changed) = addNewRow(dt, hrc);
+                if (changed)
                 {
                     feedbackTareaL.ForeColor = System.Drawing.Color.Red;
                     feedbackTareaL.Text = "No se ha creado la tarea!";
                     dt.RejectChanges();
                     updateGrid(dt);
-                }
-                else
-                {
-                    dt.AcceptChanges();
-
-                    // Registrar la tarea en el adaptador
-                    feedbackTareaL.ForeColor = System.Drawing.Color.Green;
-                    feedbackTareaL.Text = "La tarea se ha creado!";
-
-                    dt.Columns.Remove("email");// eleminar la columna email antes de visualizar
-                    updateGrid(dt);
+                    return;
                 }
 
+                // Add new Column for the email
+                dt = addNewColumn(dt);
 
-                // Se borra
-                //if (bll.updateTareasEstudiante(email, codTarea, he, hrc)) // Insertarlo en el DataTable y no directamente en la BD
-                //{
-                //    // SI Todo es correcto hacer cambios en la BD Update y Accept Changes
-                //    // Se ha insertado
-
-                //    feedbackTareaL.ForeColor = System.Drawing.Color.Green;
-                //    feedbackTareaL.Text = "La tarea se ha creado!";
-                //}
-                //else
-                //{
-                //    // error
-                //    feedbackTareaL.ForeColor = System.Drawing.Color.Red;
-                //    feedbackTareaL.Text = "No se ha creado la tarea!";
-                //}
+                // Save changes
+                saveChanges(dt);
             }
             else
             {
@@ -152,6 +115,66 @@ namespace RegistroUsuariosWeb.Alumnos
         {
             tareasIGV.DataSource = dt;
             tareasIGV.DataBind();
+        }
+
+        private (DataTable, bool) addNewRow(DataTable dt, int hrc)
+        {
+            bool hasErrors = false;
+
+            DataRow dr = dt.NewRow();
+            dr["codTarea"] = codTarea;
+            dr["hEstimadas"] = he;
+            dr["hReales"] = hrc;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                // check if same codTarea
+                if (row["codTarea"].Equals(codTarea))
+                {
+                    hasErrors = true;
+                    break;
+                }
+            }
+
+            if (hasErrors)
+            {
+                return (dt, hasErrors);
+            }
+            else
+            {
+                dt.Rows.Add(dr);
+            }
+
+            return (dt, hasErrors);
+        }
+
+        private DataTable addNewColumn(DataTable dt)
+        {
+            dt.Columns.Add("email", typeof(String)).SetOrdinal(0);
+            foreach (DataRow row in dt.Rows)
+            {
+                //need to set value to NewColumn column
+                row["email"] = email;   // or set it to some other value
+            }
+
+            return dt;
+        }
+
+        private void saveChanges(DataTable dt)
+        {
+
+            // Update the database
+            SqlDataAdapter adapter = (SqlDataAdapter)Session["adapter"];
+            adapter.Update(dt);
+            dt.AcceptChanges();
+
+            feedbackTareaL.ForeColor = System.Drawing.Color.Green;
+            feedbackTareaL.Text = "La tarea se ha creado!";
+
+            // Remove the Column from the DT
+            dt.Columns.Remove("email");
+            updateGrid(dt);
+
         }
 
     }

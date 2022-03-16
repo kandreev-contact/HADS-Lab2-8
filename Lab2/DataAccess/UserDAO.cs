@@ -466,7 +466,7 @@ namespace DataAccessLayer
             }
         }
 
-        public DataTable getTareasEstudiante(string email)
+        public (DataTable, SqlDataAdapter) getTareasEstudiante(string email)
         {
             try
             {
@@ -491,7 +491,7 @@ namespace DataAccessLayer
                 da.Fill(ds);
                 #endregion
 
-                return ds.Tables[0];
+                return (ds.Tables[0], da);
             }
             catch (Exception ex)
             {

@@ -6,6 +6,7 @@ using System.Windows;
 using DataAccessLayer;
 using EntityLayer;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace BusinessLogicLayer
 {
@@ -304,12 +305,12 @@ namespace BusinessLogicLayer
             return dt;
         }
 
-        public DataTable getTareasEstudiante(string email)
+        public (DataTable, SqlDataAdapter) getTareasEstudiante(string email)
         {
             generalDAO.openConection();
-            DataTable dt = userDAO.getTareasEstudiante(email);
+            (DataTable dt, SqlDataAdapter da) = userDAO.getTareasEstudiante(email);
             generalDAO.closeConnection();
-            return dt;
+            return (dt, da);
         }
 
         public bool updateTareasEstudiante(string email, string codTarea, string he, int hrc)

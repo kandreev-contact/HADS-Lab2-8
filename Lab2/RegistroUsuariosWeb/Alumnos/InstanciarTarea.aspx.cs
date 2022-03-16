@@ -86,9 +86,9 @@ namespace RegistroUsuariosWeb.Alumnos
                 int hrc = int.Parse(hr);
 
                 // Add new Row
-                bool changed;
-                (dt, changed) = addNewRow(dt, hrc);
-                if (changed)
+                bool notChanged;
+                (dt, notChanged) = addNewRow(dt, hrc);
+                if (notChanged)
                 {
                     feedbackTareaL.ForeColor = System.Drawing.Color.Red;
                     feedbackTareaL.Text = "No se ha creado la tarea!";
@@ -96,9 +96,6 @@ namespace RegistroUsuariosWeb.Alumnos
                     updateGrid(dt);
                     return;
                 }
-
-                // Add new Column for the email
-                dt = addNewColumn(dt);
 
                 // Save changes
                 saveChanges(dt);
@@ -113,7 +110,9 @@ namespace RegistroUsuariosWeb.Alumnos
 
         private void updateGrid(DataTable dt)
         {
-            tareasIGV.DataSource = dt;
+            DataTable dtCopy = dt.Copy();
+            dtCopy.Columns.Remove("email"); // Remove email column 
+            tareasIGV.DataSource = dtCopy; // Updated datatable
             tareasIGV.DataBind();
         }
 
@@ -122,6 +121,7 @@ namespace RegistroUsuariosWeb.Alumnos
             bool hasErrors = false;
 
             DataRow dr = dt.NewRow();
+            dr["email"] = email;
             dr["codTarea"] = codTarea;
             dr["hEstimadas"] = he;
             dr["hReales"] = hrc;
@@ -148,18 +148,6 @@ namespace RegistroUsuariosWeb.Alumnos
             return (dt, hasErrors);
         }
 
-        private DataTable addNewColumn(DataTable dt)
-        {
-            dt.Columns.Add("email", typeof(String)).SetOrdinal(0);
-            foreach (DataRow row in dt.Rows)
-            {
-                //need to set value to NewColumn column
-                row["email"] = email;   // or set it to some other value
-            }
-
-            return dt;
-        }
-
         private void saveChanges(DataTable dt)
         {
 
@@ -172,7 +160,7 @@ namespace RegistroUsuariosWeb.Alumnos
             feedbackTareaL.Text = "La tarea se ha creado!";
 
             // Remove the Column from the DT
-            dt.Columns.Remove("email");
+            // dt.Columns.Remove("email");
             updateGrid(dt);
 
         }

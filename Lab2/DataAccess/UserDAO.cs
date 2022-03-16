@@ -471,7 +471,7 @@ namespace DataAccessLayer
             try
             {
                 #region selectQuery
-                string selectQuery = "select EstudianteTarea.codTarea,EstudianteTarea.hEstimadas,EstudianteTarea.hReales from EstudianteTarea where email=@email";
+                string selectQuery = "select EstudianteTarea.email,EstudianteTarea.codTarea,EstudianteTarea.hEstimadas,EstudianteTarea.hReales from EstudianteTarea where email=@email";
 
                 sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
                 sqlCommand.Parameters.AddWithValue("@email", email);

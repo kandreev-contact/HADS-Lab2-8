@@ -17,9 +17,9 @@ namespace RegistroUsuariosWeb.Alumnos
         protected void Page_Load(object sender, EventArgs e)
         {
             bll = new BusinessLogicLayer.BusinessLogic();
-            bool firstTime = Page.IsPostBack;
+            bool firstTime = !Page.IsPostBack;
 
-            if (!firstTime)
+            if (firstTime)
             {
                 String email = Session["email"].ToString();
 

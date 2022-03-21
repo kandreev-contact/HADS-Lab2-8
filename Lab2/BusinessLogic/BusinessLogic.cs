@@ -32,6 +32,14 @@ namespace BusinessLogicLayer
             return (int)rId;
         }
 
+        public DataSet getSubjectsProfe(string email)
+        {
+            generalDAO.openConection();
+            DataSet ds = userDAO.getSubjectsProfe(email);
+            generalDAO.closeConnection();
+            return ds;
+        }
+
         public int generateNumPass()
         {
             double rId;
@@ -328,6 +336,28 @@ namespace BusinessLogicLayer
                 generalDAO.closeConnection();
                 return false;
             }
+        }
+
+        public (DataTable, SqlDataAdapter) getTareasGenericas()
+        {
+
+            generalDAO.openConection();
+            (DataTable dt, SqlDataAdapter da) = userDAO.getTareasGenericas();
+            generalDAO.closeConnection();
+            return (dt, da);
+        }
+
+        public DataTable getTareasGenericasAsig()
+        {
+            generalDAO.openConection();
+            DataTable dt = userDAO.getTareasGenericasAsig();
+            generalDAO.closeConnection();
+            return dt;
+        }
+
+        public DataTable getTareasGenericasAsig(string codAsig)
+        {
+            throw new NotImplementedException();
         }
     }
 }

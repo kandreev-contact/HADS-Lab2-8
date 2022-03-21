@@ -48,6 +48,7 @@ namespace DataAccessLayer
             }
         }
 
+
         public bool checkExistingUser(string email)
         {
             try
@@ -540,6 +541,136 @@ namespace DataAccessLayer
                 {
                     return true;
                 }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Database Query error! " + ex.ToString());
+            }
+        }
+
+        public (DataTable, SqlDataAdapter) getTareasGenericas()
+        {
+            try
+            {
+                #region selectQuery
+                //string selectQuery = "select TareaGenerica.codigo,TareaGenerica.descripcion,TareaGenerica.codAsig,TareaGenerica.hEstimadas,TareaGenerica.explotacion,TareaGenerica.tipoTarea from TareaGenerica";
+                string selectQuery = "select * from TareaGenerica";
+
+                sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
+                #endregion
+
+                #region DataAdapter
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = sqlCommand;
+                #endregion
+
+                #region CommandBuilder
+                SqlCommandBuilder cb = new SqlCommandBuilder(da);
+                #endregion
+
+                #region DataSet
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                #endregion
+
+                return (ds.Tables[0], da);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Database Query error! " + ex.ToString());
+            }
+        }
+
+        public DataTable getTareasGenericasAsig(string codAsig)
+        {
+            try
+            {
+                #region selectQuery
+                string selectQuery = "select * from TareaGenerica where TareaGenerica.codAsig=@codAsig";
+
+                sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@codAsig", codAsig);
+                #endregion
+
+                #region DataAdapter
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = sqlCommand;
+                #endregion
+
+                #region CommandBuilder
+                SqlCommandBuilder cb = new SqlCommandBuilder(da);
+                #endregion
+
+                #region DataSet
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                #endregion
+
+                return ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Database Query error! " + ex.ToString());
+            }
+        }
+
+        public DataSet getSubjectsProfe(string email)
+        {
+
+            try
+            {
+                #region selectQuery
+                string selectQuery = "SELECT GrupoClase.codigoAsig FROM GrupoClase INNER JOIN ProfesorGrupo ON GrupoClase.codigo = ProfesorGrupo.codigoGrupo WHERE (ProfesorGrupo.email = @email)";
+
+                sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@email", email);
+                #endregion
+
+                #region DataAdapter
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = sqlCommand;
+                #endregion
+
+                #region DataSet
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                #endregion
+
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Database Query error! " + ex.ToString());
+            }
+        }
+
+
+        public DataTable getTareasGenericasAsig()
+        {
+            try
+            {
+                #region selectQuery
+                string selectQuery = "select * from TareaGenerica";
+
+                sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
+                #endregion
+
+                #region DataAdapter
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = sqlCommand;
+                #endregion
+
+                #region CommandBuilder
+                SqlCommandBuilder cb = new SqlCommandBuilder(da);
+                #endregion
+
+                #region DataSet
+                DataSet ds = new DataSet();
+                ds.DataSetName = "tareas";
+                da.Fill(ds);
+                #endregion
+
+                return (ds.Tables[0]);
             }
             catch (Exception ex)
             {

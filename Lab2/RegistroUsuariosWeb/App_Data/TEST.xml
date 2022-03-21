@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="yes"?>
+<DocumentElement>
+  <tareas codigo="ISO22">
+    <descripcion>Prueba</descripcion>
+    <codAsig>ISO</codAsig>
+    <hEstimadas>12</hEstimadas>
+    <explotacion>true</explotacion>
+    <tipoTarea>Laboratorio</tipoTarea>
+  </tareas>
+  <tareas codigo="ISO-Lab1">
+    <descripcion>Laboratorio de SWING</descripcion>
+    <codAsig>ISO</codAsig>
+    <hEstimadas>12</hEstimadas>
+    <explotacion>true</explotacion>
+    <tipoTarea>Laboratorio</tipoTarea>
+  </tareas>
+</DocumentElement>

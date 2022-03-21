@@ -11,7 +11,7 @@ namespace RegistroUsuariosWeb.Profesorado
 {
 
 
-    public partial class GestionarTareas
+    public partial class Exportar
     {
 
         /// <summary>
@@ -78,13 +78,13 @@ namespace RegistroUsuariosWeb.Profesorado
         protected global::System.Web.UI.WebControls.Button cerrarSesionButton;
 
         /// <summary>
-        /// insertarTareasButton control.
+        /// tareasProfeGV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button insertarTareasButton;
+        protected global::System.Web.UI.WebControls.GridView tareasProfeGV;
 
         /// <summary>
         /// asignaturasDDL control.
@@ -96,30 +96,30 @@ namespace RegistroUsuariosWeb.Profesorado
         protected global::System.Web.UI.WebControls.DropDownList asignaturasDDL;
 
         /// <summary>
-        /// HADSSQLDataSource control.
+        /// exportarXMLButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource HADSSQLDataSource;
+        protected global::System.Web.UI.WebControls.Button exportarXMLButton;
 
         /// <summary>
-        /// TareasGenericasAsig control.
+        /// REFRESH control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView TareasGenericasAsig;
+        protected global::System.Web.UI.WebControls.Button REFRESH;
 
         /// <summary>
-        /// UpdateSQLTG control.
+        /// feedbackImport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource UpdateSQLTG;
+        protected global::System.Web.UI.WebControls.Label feedbackImport;
     }
 }

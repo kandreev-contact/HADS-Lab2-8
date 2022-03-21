@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="yes"?>
+<DocumentElement>
+  <tarea codigo="ADSI02-1">
+    <descripcion>Test ADSI</descripcion>
+    <codAsig>ADSI</codAsig>
+    <hEstimadas>2</hEstimadas>
+    <explotacion>true</explotacion>
+    <tipoTarea>Laboratorio</tipoTarea>
+  </tarea>
+  <tarea codigo="HAS2022-NEW1">
+    <descripcion>asdasdasdasdsadsa</descripcion>
+    <codAsig>ADSI</codAsig>
+    <hEstimadas>12</hEstimadas>
+    <explotacion>true</explotacion>
+    <tipoTarea>Filtro</tipoTarea>
+  </tarea>
+  <tarea codigo="HAS2022-NEW2">
+    <descripcion>asd vxccv2 1312123 </descripcion>
+    <codAsig>ADSI</codAsig>
+    <hEstimadas>12</hEstimadas>
+    <explotacion>false</explotacion>
+    <tipoTarea>Filtro</tipoTarea>
+  </tarea>
+</DocumentElement>

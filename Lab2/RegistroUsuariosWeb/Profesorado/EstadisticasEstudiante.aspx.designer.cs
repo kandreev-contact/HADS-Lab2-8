@@ -60,6 +60,15 @@ namespace RegistroUsuariosWeb.Profesorado
         protected global::System.Web.UI.WebControls.Button exportarButton;
 
         /// <summary>
+        /// importarDataSetButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button importarDataSetButton;
+
+        /// <summary>
         /// cerrarSesionButton control.
         /// </summary>
         /// <remarks>

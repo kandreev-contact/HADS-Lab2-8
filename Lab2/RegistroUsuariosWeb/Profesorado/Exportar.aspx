@@ -1,14 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EstadisticasEstudiante.aspx.cs" Inherits="RegistroUsuariosWeb.Profesorado.EstadisticasEstudiante" %>
-
-<%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Exportar.aspx.cs" Inherits="RegistroUsuariosWeb.Profesorado.Exportar" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Estadisticas Alumnos</title>
+    <title>Exportar</title>
     <link rel="stylesheet" type="text/css" href="../css/CommonStyle.css" />
-    <link rel="stylesheet" type="text/css" href="../css/profesorEStyle.css" />
+    <link rel="stylesheet" type="text/css" href="../css/profesorStyle.css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -43,44 +41,49 @@
                     </table>
                 </div>
                 <div class="header">
-                    <h1>Estadisitcas Tareas-Alumnos</h1>
+                    <h1>Exportar Tareas Genericas</h1>
                 </div>
 
                 <div class="loginBox">
                     <%--<h1 id="headerConfirmation" runat="server">Gestion Web de Tareas-Dedicacion</h1>--%><%--<p id="HelloMsg" runat="server">Bienvenido de nuevo</p>--%>
                     <table id="menuProf">
                         <tr>
-                            <td>
-                                <p>Alumno: </p>
+                            <td colspan="2">
+                                <p>Seleccionar Asignatura a Exportar: </p>
+                            </td>
+                            <td rowspan="4">
+                                <asp:GridView ID="tareasProfeGV" runat="server" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4">
+                                    <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
+                                    <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
+                                    <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
+                                    <RowStyle BackColor="White" ForeColor="#330099" />
+                                    <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
+                                    <SortedAscendingCellStyle BackColor="#FEFCEB" />
+                                    <SortedAscendingHeaderStyle BackColor="#AF0101" />
+                                    <SortedDescendingCellStyle BackColor="#F6F0C0" />
+                                    <SortedDescendingHeaderStyle BackColor="#7E0000" />
+                                </asp:GridView>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <asp:DropDownList ID="asignaturasDDL" runat="server" AutoPostBack="True"></asp:DropDownList>
+
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <asp:DropDownList ID="alumnosDDL" runat="server" DataSourceID="HADSAlumnos" DataTextField="email" DataValueField="email" AutoPostBack="True"></asp:DropDownList>
-                                <asp:SqlDataSource ID="HADSAlumnos" runat="server" ConnectionString="<%$ ConnectionStrings:HADS22-12ConnectionString %>" SelectCommand="SELECT DISTINCT Usuario.email FROM Usuario INNER JOIN EstudianteGrupo ON Usuario.email = EstudianteGrupo.email"></asp:SqlDataSource>
-                            </td>
+                                <asp:Button class="functionsButtons" ID="exportarXMLButton" runat="server" Text="Exportar Xml" OnClick="exportarXMLButton_Click" /></td>
+                            <td>
+                                <asp:Button class="functionsButtons" ID="REFRESH" runat="server" Text="Refresh" /></td>
                         </tr>
                         <tr>
-                            <td>
-                                <asp:Chart runat="server" ID="chartHoras" DataSourceID="HADSHorasInvertidas">
-                                    <Series>
-                                        <asp:Series Name="Horas" XValueMember="codTarea" YValueMembers="hReales"></asp:Series>
-                                    </Series>
-                                    <ChartAreas>
-                                        <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
-                                    </ChartAreas>
-                                </asp:Chart>
-                                <asp:SqlDataSource ID="HADSHorasInvertidas" runat="server" ConnectionString="<%$ ConnectionStrings:HADS22-12ConnectionString %>" SelectCommand="SELECT DISTINCT [hEstimadas], [hReales], [codTarea] FROM [EstudianteTarea] WHERE ([email] = @email)">
-                                    <SelectParameters>
-                                        <asp:ControlParameter ControlID="alumnosDDL" Name="email" PropertyName="SelectedValue" Type="String" />
-                                    </SelectParameters>
-                                </asp:SqlDataSource>
-                            </td>
+                            <td colspan="2">
+                                <asp:Label ID="feedbackImport" runat="server" Text=""></asp:Label></td>
                         </tr>
                     </table>
-
                 </div>
-
 
                 <div class="backgroundBody">
                     <img src="../imgs/upvb.jpeg" />

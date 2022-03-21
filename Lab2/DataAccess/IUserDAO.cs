@@ -39,6 +39,11 @@ namespace DataAccessLayer
         void registerTarea(TareaGenerica tarea);
 
         DataSet getSubjects(String alumno);
+
+        (DataTable, SqlDataAdapter) getTareasGenericas();
+
+        DataTable getTareasGenericasAsig();
+
         DataSet getTareasGenericas(string alumno);
 
         DataTable getTareasGenericas(string alumno, string codAsig);
@@ -48,5 +53,8 @@ namespace DataAccessLayer
         void updateTareasEstudiante(string email, string codTarea, string he, int hrc);
 
         bool checkExistingTareaEstudiante(string codTarea);
+
+        DataTable getTareasGenericasAsig(String codAsig);
+
     }
 }

@@ -72,6 +72,9 @@
     <Content Include="Alumnos\Estudiante.aspx" />
     <Content Include="Alumnos\InstanciarTarea.aspx" />
     <Content Include="Alumnos\VerTareasEstudiante.aspx" />
+    <Content Include="App_Data\HAS.xml" />
+    <Content Include="App_Data\SEG.xml" />
+    <Content Include="App_Data\VerTablaTareas.xsl" />
     <Content Include="CambiarPassword.aspx" />
     <Content Include="CamboarPasswordE.aspx" />
     <Content Include="Confirmar.aspx" />
@@ -91,7 +94,9 @@
     <Content Include="imgs\upvb.jpeg" />
     <Content Include="Inicio.aspx" />
     <Content Include="Profesorado\EstadisticasEstudiante.aspx" />
+    <Content Include="Profesorado\Exportar.aspx" />
     <Content Include="Profesorado\GestionarTareas.aspx" />
+    <Content Include="Profesorado\ImportarXMLDocument.aspx" />
     <Content Include="Profesorado\InsertarTarea.aspx" />
     <Content Include="Profesorado\Profesor.aspx" />
     <Content Include="Registro.aspx" />
@@ -161,12 +166,26 @@
     <Compile Include="Profesorado\EstadisticasEstudiante.aspx.designer.cs">
       <DependentUpon>EstadisticasEstudiante.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Profesorado\Exportar.aspx.cs">
+      <DependentUpon>Exportar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesorado\Exportar.aspx.designer.cs">
+      <DependentUpon>Exportar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Profesorado\GestionarTareas.aspx.cs">
       <DependentUpon>GestionarTareas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Profesorado\GestionarTareas.aspx.designer.cs">
       <DependentUpon>GestionarTareas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesorado\ImportarXMLDocument.aspx.cs">
+      <DependentUpon>ImportarXMLDocument.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesorado\ImportarXMLDocument.aspx.designer.cs">
+      <DependentUpon>ImportarXMLDocument.aspx</DependentUpon>
     </Compile>
     <Compile Include="Profesorado\InsertarTarea.aspx.cs">
       <DependentUpon>InsertarTarea.aspx</DependentUpon>
@@ -192,6 +211,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App_Data\tareas.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\hads22-12 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\hads22-12 - Web Deploy.pubxml" />

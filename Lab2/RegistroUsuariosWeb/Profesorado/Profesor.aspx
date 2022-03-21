@@ -20,19 +20,23 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:Button class="functionsButtons" ID="estadisticaButton" runat="server" Text="Estadisticas" OnClick="estadisticaButton_Click"/></td>
+                            <asp:Button class="functionsButtons" ID="estadisticaButton" runat="server" Text="Estadisticas" OnClick="estadisticaButton_Click" /></td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:Button class="functionsButtons" ID="xmldocButton" runat="server" Text="Importar v. XMLDocument" disabled="true" /></td>
+                            <asp:Button class="functionsButtons" ID="xmldocButton" runat="server" Text="Importar v. XMLDocument" OnClick="xmldocButton_Click" /></td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:Button class="functionsButtons" ID="exportarButton" runat="server" Text="Exportar" disabled="true" /></td>
+                            <asp:Button class="functionsButtons" ID="exportarButton" runat="server" Text="Exportar" OnClick="exportarButton_Click" /></td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:Button class="functionsButtons" ID="cerrarSesionButton" runat="server" Text="Cerrar Sesion" OnClick="cerrarSesionButton_Click"/></td>
+                            <asp:Button class="functionsButtons" ID="importarDataSetButton" runat="server" Text="Importar Dataset" disabled="true" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Button class="functionsButtons" ID="cerrarSesionButton" runat="server" Text="Cerrar Sesion" OnClick="cerrarSesionButton_Click" /></td>
                     </tr>
                 </table>
             </div>

@@ -12,7 +12,7 @@
     <form id="form1" runat="server">
         <div class="container">
             <div class="header">
-                <h1>Lboratorio2-3 HADS-2022</h1>
+                <h1>Lboratorio2-5 HADS-2022</h1>
             </div>
 
             <div class="loginBox">

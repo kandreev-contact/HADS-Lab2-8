@@ -41,5 +41,17 @@ namespace RegistroUsuariosWeb.Profesorado
         {
             Response.Redirect("./EstadisticasEstudiante.aspx");
         }
+
+        protected void xmldocButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("./ImportarXMLDocument.aspx");
+        }
+
+        protected void exportarButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("./Exportar.aspx");
+        }
+
+
     }
 }

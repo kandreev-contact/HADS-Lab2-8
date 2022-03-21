@@ -40,7 +40,13 @@ namespace BusinessLogic
 
         (DataTable, SqlDataAdapter) getTareasEstudiante(String email);
 
+        (DataTable, SqlDataAdapter) getTareasGenericas();
+
         bool updateTareasEstudiante(string email, string codTarea, string he, int hrc);
+
+        DataTable getTareasGenericasAsig(String codAsig);
+
+        DataTable getTareasGenericasAsig();
 
     }
 }

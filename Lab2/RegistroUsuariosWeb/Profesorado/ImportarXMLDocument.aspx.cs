@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -33,11 +34,20 @@ namespace RegistroUsuariosWeb.Profesorado
             }
             else
             {
+                feedbackImport.Text = "";
+
                 DataTable dt = (DataTable)Session["table"];
                 SqlDataAdapter adapter = (SqlDataAdapter)Session["adapter"];
                 String subject = asignaturasDDL.SelectedValue;
+                String xmlPath = Server.MapPath("~/App_Data/" + subject + ".xml");
 
-                importedTable.DocumentSource = Server.MapPath("~/App_Data/" + subject + ".xml");
+                if (!File.Exists(xmlPath))
+                {
+                    feedbackImport.Text = $"No existe fichero con nombre {subject} para visualizar tareas!".ToUpper();
+                    return;
+                }
+
+                importedTable.DocumentSource = xmlPath;
                 importedTable.TransformSource = Server.MapPath("~/App_Data/VerTablaTareas.xsl");
             }
 
@@ -47,6 +57,13 @@ namespace RegistroUsuariosWeb.Profesorado
         {
             String subject = asignaturasDDL.SelectedValue;
             String xmlPath = Server.MapPath("~/App_Data/" + subject + ".xml");
+
+            if (!File.Exists(xmlPath))
+            {
+                feedbackImport.Text = $"No existe fichero con nombre {subject} para importar tareas!".ToUpper();
+                return;
+            }
+
             bool hasErrors = false;
 
             // Code importar uso de XMLDocument class

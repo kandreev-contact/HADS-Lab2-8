@@ -41,6 +41,8 @@ namespace RegistroUsuariosWeb.Profesorado
             }
             else
             {
+                feedbackImport.Text = "";
+
                 // Hacer un filtro de la GridView , tenemos Session table
                 // Filtramos solo las asugnatura seleccionada el row/column de asig
                 DataView dv = (DataView)Session["view"];

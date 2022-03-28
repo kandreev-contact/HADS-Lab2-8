@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicLayer", "Busin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityLayer", "DataStructure\EntityLayer.csproj", "{FF3DC13A-AB2C-450B-92EF-3AA52D461C43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeguridadConsole", "SeguridadConsole\SeguridadConsole.csproj", "{B52B4FC1-2D77-4D7B-AB89-1A4EADC17131}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{FF3DC13A-AB2C-450B-92EF-3AA52D461C43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF3DC13A-AB2C-450B-92EF-3AA52D461C43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF3DC13A-AB2C-450B-92EF-3AA52D461C43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B52B4FC1-2D77-4D7B-AB89-1A4EADC17131}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B52B4FC1-2D77-4D7B-AB89-1A4EADC17131}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B52B4FC1-2D77-4D7B-AB89-1A4EADC17131}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B52B4FC1-2D77-4D7B-AB89-1A4EADC17131}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -90,9 +90,9 @@ namespace BusinessLogicLayer
         public void sendEmailRegister(string email, int id)
         {
             String server = "smtp.ehu.eus";
-            String from = "kandreev001@ikasle.ehu.eus";
-            String nCredE = "kandreev001@ikasle.ehu.eus";
-            String nCredP = "HADS2022-12";
+            String from = "?";
+            String nCredE = "?";
+            String nCredP = "?";
             String subject = "Confirmar tu email! HADS22-12";
             //String body = $"Para confirmar tu email pulsa aqui: https://localhost:44386/Confirmar.aspx?email={email}&numconf={id}";
             String body = $"Para confirmar tu email pulsa aqui: https://hads22-12.azurewebsites.net/Confirmar.aspx?email={email}&numconf={id}";
@@ -126,9 +126,9 @@ namespace BusinessLogicLayer
         public void sendEmailChangePassword(string email, int idPass)
         {
             String server = "smtp.ehu.eus";
-            String from = "kandreev001@ikasle.ehu.eus";
-            String nCredE = "kandreev001@ikasle.ehu.eus";
-            String nCredP = "HADS2022-12";
+            String from = "?";
+            String nCredE = "?";
+            String nCredP = "?";
             String subject = "Codigo para cambiar tu password! HADS22-12";
             //String body = $"Este es tu codigo de recuperacion:{idPass} \n Para cambiar tu password utiliza este enlace: https://localhost:44386/CambiarPassword.aspx?email={email}";
             String body = $"Este es tu codigo de recuperacion:{idPass} \n Para cambiar tu password utiliza este enlace: https://hads22-12.azurewebsites.net/CambiarPassword.aspx?email={email}";

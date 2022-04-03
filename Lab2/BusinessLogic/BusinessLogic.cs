@@ -7,6 +7,8 @@ using DataAccessLayer;
 using EntityLayer;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace BusinessLogicLayer
 {
@@ -75,6 +77,7 @@ namespace BusinessLogicLayer
         {
 
             generalDAO.openConection();
+            password = Md5(password); // Hashed password
             if (userDAO.checkLogin(email, password))
             {
                 generalDAO.closeConnection();
@@ -259,6 +262,7 @@ namespace BusinessLogicLayer
         {
 
             generalDAO.openConection();
+            password = Md5(password);
             User user = userDAO.getUser(email, password);
             generalDAO.closeConnection();
 
@@ -358,6 +362,26 @@ namespace BusinessLogicLayer
         public DataTable getTareasGenericasAsig(string codAsig)
         {
             throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Funcion hash obtenida de, https://developpaper.com/encryption-algorithms-md5-sha1/
+        /// </summary>
+        /// <param name="str"> String to be hashed</param>
+        /// <returns>Returns the hashed string</returns>
+        public string Md5(string str)
+        {
+            var buffer = Encoding.UTF8.GetBytes(str);
+
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] bytes = md5.ComputeHash(buffer);
+
+            var sb = new StringBuilder();
+            foreach (var t in bytes)
+            {
+                sb.Append(t.ToString("X2"));
+            }
+            return sb.ToString().ToLower();
         }
     }
 }

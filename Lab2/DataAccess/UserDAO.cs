@@ -156,7 +156,7 @@ namespace DataAccessLayer
         public bool checkLogin(string email, string password)
         {
             try
-            {
+            { // Ahora con la contraseña encriptada
                 string selectQuery = "select count(*) from Usuario where email=@email and pass=@password";
 
                 sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);

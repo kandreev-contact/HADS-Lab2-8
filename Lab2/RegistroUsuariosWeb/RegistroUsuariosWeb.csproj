@@ -211,10 +211,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Alumnos\Web.config" />
     <None Include="App_Data\tareas.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <Content Include="Profesorado\Web.config" />
     <None Include="Properties\PublishProfiles\hads22-12 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\hads22-12 - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">

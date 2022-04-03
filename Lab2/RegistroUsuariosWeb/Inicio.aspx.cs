@@ -1,10 +1,7 @@
 ﻿using EntityLayer;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Web.Security;
+using System.Windows;
 
 namespace RegistroUsuariosWeb
 {
@@ -37,12 +34,25 @@ namespace RegistroUsuariosWeb
                     Session.Add("name", user.getName());
                     Session.Add("role", user.getRole());
 
+                    // Set cookie 
+                    FormsAuthentication.SetAuthCookie(user.getRole(), false);
+
                     if (user.getRole().Equals("Alumno"))
                     {
+                        // Set role
+                        //Roles.AddUserToRole(user.getEmail(), user.getRole());
                         Response.Redirect("~/Alumnos/Estudiante.aspx");
                     }
                     else if (user.getRole().Equals("Profesor"))
                     {
+                        // Set role
+                        //Roles.AddUserToRole(user.getEmail(), user.getRole());
+                        String cordinador = "vadillo@ehu.es";
+                        if (user.getEmail().Equals(cordinador))
+                        {
+                            FormsAuthentication.SetAuthCookie(user.getRole() + "V", false);
+                        }
+
                         Response.Redirect("~/Profesorado/Profesor.aspx");
                     }
                     divSend.Visible = false;

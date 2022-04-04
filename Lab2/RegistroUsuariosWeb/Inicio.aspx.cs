@@ -48,7 +48,7 @@ namespace RegistroUsuariosWeb
                         // Set role
                         //Roles.AddUserToRole(user.getEmail(), user.getRole());
                         String cordinador = "vadillo@ehu.es";
-                        if (user.getEmail().Equals(cordinador))
+                        if (user.getEmail().Equals(cordinador) || user.getEmail().Equals("admin@ehu.es"))
                         {
                             FormsAuthentication.SetAuthCookie(user.getRole() + "V", false);
                         }

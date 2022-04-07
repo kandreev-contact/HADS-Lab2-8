@@ -89,6 +89,7 @@
     <Content Include="css\profesorStyle.css" />
     <Content Include="css\registroStyle.css" />
     <Content Include="css\inicioStyle.css" />
+    <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="imgs\logo.png" />
     <Content Include="imgs\upvb.jpeg" />
@@ -144,6 +145,9 @@
     </Compile>
     <Compile Include="Confirmar.aspx.designer.cs">
       <DependentUpon>Confirmar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

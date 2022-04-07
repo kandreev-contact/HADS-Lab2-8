@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Windows;
@@ -22,12 +23,28 @@ namespace RegistroUsuariosWeb.Profesorado
             {
                 HelloMsg.InnerText = "Entrada sin sesion... ";
             }
+
+
+            alumnosOnline.Text = "Alumnos online: " + Application["Alumnos"].ToString();
+            profesoresOnline.Text = "Profesores online: " + Application["Profesores"].ToString();
+            foreach (string email in (List<string>)Application["ProfesoresEmails"])
+            {
+                //MessageBox.Show(email);
+                profesoresLB.Items.Add(email);
+            }
+            foreach (string email in (List<string>)Application["AlumnosEmails"])
+            {
+                //MessageBox.Show(email);
+                alumnosLB.Items.Add(email);
+            }
+
         }
 
         protected void cerrarSesionButton_Click(object sender, EventArgs e)
         {
-            Session.Abandon();
 
+            FormsAuthentication.SignOut();
+            Session.Abandon();
             Response.Redirect("../Inicio.aspx"); // Msg to confirm exit
 
         }
@@ -52,6 +69,22 @@ namespace RegistroUsuariosWeb.Profesorado
             Response.Redirect("./Exportar.aspx");
         }
 
+        protected void Timer1_Tick(object sender, EventArgs e)
+        {
+            profesoresLB.Items.Clear();
+            alumnosLB.Items.Clear();
+
+            alumnosOnline.Text = "Alumnos online: " + Application["Alumnos"].ToString();
+            profesoresOnline.Text = "Profesores online: " + Application["Profesores"].ToString();
+            foreach (string email in (List<string>)Application["ProfesoresEmails"])
+            {
+                profesoresLB.Items.Add(email);
+            }
+            foreach (string email in (List<string>)Application["AlumnosEmails"])
+            {
+                alumnosLB.Items.Add(email);
+            }
+        }
 
     }
 }

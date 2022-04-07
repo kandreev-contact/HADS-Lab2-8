@@ -47,6 +47,23 @@
             <div class="loginBox">
                 <h1 id="headerConfirmation" runat="server">Gestion Web de Tareas-Dedicacion</h1>
                 <p id="HelloMsg" runat="server">Bienvenido de nuevo</p>
+
+                <asp:ScriptManager ID="ScriptManager1" runat="server">
+                </asp:ScriptManager>
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server" ViewStateMode="Enabled" UpdateMode="Conditional">
+                    <ContentTemplate>
+                        <asp:Label ID="alumnosOnline" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="profesoresOnline" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="usuariosOnline" runat="server" Text=""></asp:Label>
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick" />
+                    </Triggers>
+                </asp:UpdatePanel>
+                <asp:Timer ID="Timer1" runat="server" Interval="5000" OnTick="Timer1_Tick">
+                </asp:Timer>
+                <asp:ListBox ID="alumnosLB" runat="server" Width="160px"></asp:ListBox>
+                <asp:ListBox ID="profesoresLB" runat="server" Width="162px"></asp:ListBox>
             </div>
 
 

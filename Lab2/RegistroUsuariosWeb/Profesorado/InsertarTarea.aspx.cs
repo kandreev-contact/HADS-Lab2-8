@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using EntityLayer;
@@ -25,6 +26,7 @@ namespace RegistroUsuariosWeb.Profesorado
 
         protected void cerrarSesionButton_Click(object sender, EventArgs e)
         {
+            FormsAuthentication.SignOut();
             Session.Abandon();
             Response.Redirect("../Inicio.aspx");
         }

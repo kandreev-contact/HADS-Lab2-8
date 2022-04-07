@@ -70,9 +70,9 @@ namespace RegistroUsuariosWeb.Alumnos
 
         protected void cerrarSesionButton_Click(object sender, EventArgs e)
         {
-            FormsAuthentication.SignOut();
-            Session.Abandon();
 
+            Session.Abandon();
+            FormsAuthentication.SignOut();
             Response.Redirect("../Inicio.aspx"); // Msg to confirm exit
         }
 

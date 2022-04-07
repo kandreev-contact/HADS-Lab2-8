@@ -141,15 +141,6 @@ namespace RegistroUsuariosWeb.Profesorado
         protected global::System.Web.UI.WebControls.Label usuariosOnline;
 
         /// <summary>
-        /// Timer1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.Timer Timer1;
-
-        /// <summary>
         /// alumnosLB control.
         /// </summary>
         /// <remarks>
@@ -166,5 +157,14 @@ namespace RegistroUsuariosWeb.Profesorado
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox profesoresLB;
+
+        /// <summary>
+        /// Timer1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.Timer Timer1;
     }
 }

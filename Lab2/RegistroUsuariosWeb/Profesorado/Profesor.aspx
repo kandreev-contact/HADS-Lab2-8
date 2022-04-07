@@ -55,6 +55,9 @@
                         <asp:Label ID="alumnosOnline" runat="server" Text=""></asp:Label>
                         <asp:Label ID="profesoresOnline" runat="server" Text=""></asp:Label>
                         <asp:Label ID="usuariosOnline" runat="server" Text=""></asp:Label>
+                        <br />
+                        <asp:ListBox ID="alumnosLB" runat="server" Width="160px"></asp:ListBox>
+                        <asp:ListBox ID="profesoresLB" runat="server" Width="162px"></asp:ListBox>
                     </ContentTemplate>
                     <Triggers>
                         <asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick" />
@@ -62,8 +65,7 @@
                 </asp:UpdatePanel>
                 <asp:Timer ID="Timer1" runat="server" Interval="5000" OnTick="Timer1_Tick">
                 </asp:Timer>
-                <asp:ListBox ID="alumnosLB" runat="server" Width="160px"></asp:ListBox>
-                <asp:ListBox ID="profesoresLB" runat="server" Width="162px"></asp:ListBox>
+
             </div>
 
 

@@ -26,8 +26,9 @@ namespace RegistroUsuariosWeb.Profesorado
 
         protected void cerrarSesionButton_Click(object sender, EventArgs e)
         {
-            FormsAuthentication.SignOut();
+
             Session.Abandon();
+            FormsAuthentication.SignOut();
             Response.Redirect("../Inicio.aspx");
         }
 

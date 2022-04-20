@@ -15,11 +15,14 @@ namespace RegistroUsuariosWeb
     public partial class Registro : System.Web.UI.Page
     {
         private BusinessLogicLayer.BusinessLogic bll;
+        private matriculas.Matriculas matriculas;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             divSend.Visible = false;
             bll = new BusinessLogicLayer.BusinessLogic();
+            matriculas = new matriculas.Matriculas();
+
         }
 
         protected void RegisterButton_Click(object sender, EventArgs e)
@@ -33,6 +36,7 @@ namespace RegistroUsuariosWeb
 
             PassLengthValidator.IsValid = v1;
             PasswordsEValidators.IsValid = v2;
+
 
             if (v2 && v3 && v1)
             {
@@ -58,6 +62,9 @@ namespace RegistroUsuariosWeb
             {
                 divSend.Visible = false;
             }
+
+
+
         }
 
         private bool passwordRepeatValidation(String pass1, String pass2)
@@ -80,5 +87,23 @@ namespace RegistroUsuariosWeb
                 return false;
         }
 
+        protected void CheckMatriculaVal_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+
+        }
+
+        protected void EmailTBR_TextChanged(object sender, EventArgs e)
+        {
+            if (matriculas.comprobar(EmailTBR.Text).Equals("SI"))
+            {
+                EmailTBR.BorderWidth = 3;
+                EmailTBR.BorderColor = System.Drawing.Color.Green;
+            }
+            else if (matriculas.comprobar(EmailTBR.Text).Equals("NO"))
+            {
+                EmailTBR.BorderWidth = 3;
+                EmailTBR.BorderColor = System.Drawing.Color.Red;
+            }
+        }
     }
 }

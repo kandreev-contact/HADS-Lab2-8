@@ -32,12 +32,22 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:TextBox ID="EmailTBR" class="boxesT" runat="server" TextMode="Email"></asp:TextBox>
+                            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
+                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                <ContentTemplate>
+                                    <asp:TextBox ID="EmailTBR" class="boxesT" runat="server" TextMode="Email" OnTextChanged="EmailTBR_TextChanged" AutoPostBack="True"></asp:TextBox>
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="EmailTBR" />
+                                </Triggers>
+                            </asp:UpdatePanel>
+
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:RegularExpressionValidator ID="EmailRExpressionValidator" runat="server" ErrorMessage="E-mail no valido!" ForeColor="Red" ControlToValidate="EmailTBR" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                            <%--<asp:RegularExpressionValidator ID="EmailRExpressionValidator" runat="server" ErrorMessage="E-mail no valido!" ForeColor="Red" ControlToValidate="EmailTBR" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>--%>
                             <br />
                         </td>
                     </tr>

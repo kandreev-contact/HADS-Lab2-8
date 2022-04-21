@@ -467,6 +467,72 @@ namespace DataAccessLayer
             }
         }
 
+        public DataTable getTareasGenericasAllStudents(string codAsig)
+        {
+            try
+            {
+                #region selectQuery
+                string selectQuery = "select distinct AVG(TareaGenerica.hEstimadas) " +
+                   "from TareaGenerica " +
+                   " inner join (GrupoClase inner join EstudianteGrupo on EstudianteGrupo.grupo=GrupoClase.codigo) on TareaGenerica.codAsig=GrupoClase.codigoAsig " +
+                   "where TareaGenerica.codAsig=@codAsig and  TareaGenerica.explotacion=1 and " +
+                   "not exists ( select EstudianteTarea.codTarea from EstudianteTarea where TareaGenerica.codigo=EstudianteTarea.codTarea)";
+
+                sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@codAsig", codAsig);
+                #endregion
+
+                #region DataAdapter
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = sqlCommand;
+                #endregion
+
+                #region CommandBuilder
+                SqlCommandBuilder cb = new SqlCommandBuilder(da);
+                #endregion
+
+                #region DataSet
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                #endregion
+
+                return ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Database Query error! " + ex.ToString());
+            }
+        }
+
+        public int getSubjectAvgHoursStudent(string codAsig)
+        {
+            try
+            {
+                string selectQuery = "SELECT AVG(EstudianteTarea.hReales) AS avgHours " +
+                "FROM EstudianteTarea INNER JOIN TareaGenerica ON TareaGenerica.codigo=EstudianteTarea.codTarea " +
+                "WHERE TareaGenerica.codAsig=@codAsig AND TareaGenerica.explotacion=1";
+
+                sqlCommand = new SqlCommand(selectQuery, this.sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@codAsig", codAsig);
+
+                int avgH = 0;
+                using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        avgH = (int)reader["avgHours"];
+                    }
+                }
+
+                return avgH;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Database Query error! " + ex.ToString());
+            }
+
+        }
+
         public (DataTable, SqlDataAdapter) getTareasEstudiante(string email)
         {
             try

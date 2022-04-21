@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityLayer", "DataStructur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeguridadConsole", "SeguridadConsole\SeguridadConsole.csproj", "{B52B4FC1-2D77-4D7B-AB89-1A4EADC17131}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvarageHoursWebService", "AvarageHoursWebService\AvarageHoursWebService.csproj", "{DC2A95E9-E936-4000-97B9-5BD96F69EBD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B52B4FC1-2D77-4D7B-AB89-1A4EADC17131}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B52B4FC1-2D77-4D7B-AB89-1A4EADC17131}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B52B4FC1-2D77-4D7B-AB89-1A4EADC17131}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC2A95E9-E936-4000-97B9-5BD96F69EBD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC2A95E9-E936-4000-97B9-5BD96F69EBD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC2A95E9-E936-4000-97B9-5BD96F69EBD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC2A95E9-E936-4000-97B9-5BD96F69EBD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

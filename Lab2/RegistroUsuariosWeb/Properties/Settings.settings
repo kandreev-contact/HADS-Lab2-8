@@ -5,5 +5,8 @@
     <Setting Name="RegistroUsuariosWeb_matriculas_Matriculas" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://ehusw.es/jav/ServiciosWeb/comprobarmatricula.php</Value>
     </Setting>
+    <Setting Name="RegistroUsuariosWeb_studentAvgHoursBySubjectService_StudentAvgService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://avaragehoursservice.azurewebsites.net/StudentAvgService.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -32,5 +32,15 @@ namespace RegistroUsuariosWeb.Properties {
                 return ((string)(this["RegistroUsuariosWeb_matriculas_Matriculas"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://avaragehoursservice.azurewebsites.net/StudentAvgService.asmx")]
+        public string RegistroUsuariosWeb_studentAvgHoursBySubjectService_StudentAvgService {
+            get {
+                return ((string)(this["RegistroUsuariosWeb_studentAvgHoursBySubjectService_StudentAvgService"]));
+            }
+        }
     }
 }

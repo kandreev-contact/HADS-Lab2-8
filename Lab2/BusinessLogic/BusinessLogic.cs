@@ -317,6 +317,22 @@ namespace BusinessLogicLayer
             return dt;
         }
 
+        public DataTable getTareasGenericasAllStudents(string codAsig)
+        {
+            generalDAO.openConection();
+            DataTable dt = userDAO.getTareasGenericasAllStudents(codAsig);
+            generalDAO.closeConnection();
+            return dt;
+        }
+
+        public int getSubjectAvgHoursStudent(string codAsig)
+        {
+            generalDAO.openConection();
+            int avgH = userDAO.getSubjectAvgHoursStudent(codAsig);
+            generalDAO.closeConnection();
+            return avgH;
+        }
+
         public (DataTable, SqlDataAdapter) getTareasEstudiante(string email)
         {
             generalDAO.openConection();

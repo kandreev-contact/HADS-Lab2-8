@@ -86,5 +86,9 @@ namespace RegistroUsuariosWeb.Profesorado
             }
         }
 
+        protected void estadisticasAsigButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("./EstadisticasAsignatura.aspx");
+        }
     }
 }

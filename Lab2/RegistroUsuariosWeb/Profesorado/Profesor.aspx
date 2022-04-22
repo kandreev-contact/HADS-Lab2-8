@@ -20,7 +20,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:Button class="functionsButtons" ID="estadisticaButton" runat="server" Text="Estadisticas" OnClick="estadisticaButton_Click" /></td>
+                            <asp:Button class="functionsButtons" ID="estadisticaButton" runat="server" Text="Estadisticas Estudiante" OnClick="estadisticaButton_Click" /></td>
                     </tr>
                     <tr>
                         <td>
@@ -33,6 +33,10 @@
                     <tr>
                         <td>
                             <asp:Button class="functionsButtons" ID="importarDataSetButton" runat="server" Text="Importar Dataset" disabled="true" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Button class="functionsButtons" ID="estadisticasAsigButton" runat="server" Text="Estadisticas Asignatura" OnClick="estadisticasAsigButton_Click" /></td>
                     </tr>
                     <tr>
                         <td>

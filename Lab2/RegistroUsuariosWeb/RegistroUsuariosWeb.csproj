@@ -96,6 +96,7 @@
     <Content Include="imgs\logo.png" />
     <Content Include="imgs\upvb.jpeg" />
     <Content Include="Inicio.aspx" />
+    <Content Include="Profesorado\EstadisticasAsignatura.aspx" />
     <Content Include="Profesorado\EstadisticasEstudiante.aspx" />
     <Content Include="Profesorado\Exportar.aspx" />
     <Content Include="Profesorado\GestionarTareas.aspx" />
@@ -169,6 +170,13 @@
     </Compile>
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesorado\EstadisticasAsignatura.aspx.cs">
+      <DependentUpon>EstadisticasAsignatura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesorado\EstadisticasAsignatura.aspx.designer.cs">
+      <DependentUpon>EstadisticasAsignatura.aspx</DependentUpon>
     </Compile>
     <Compile Include="Profesorado\EstadisticasEstudiante.aspx.cs">
       <DependentUpon>EstadisticasEstudiante.aspx</DependentUpon>

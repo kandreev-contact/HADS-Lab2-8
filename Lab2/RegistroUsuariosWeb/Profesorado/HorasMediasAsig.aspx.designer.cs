@@ -11,7 +11,7 @@ namespace RegistroUsuariosWeb.Profesorado
 {
 
 
-    public partial class Profesor
+    public partial class HorasMediasAsig
     {
 
         /// <summary>
@@ -69,15 +69,6 @@ namespace RegistroUsuariosWeb.Profesorado
         protected global::System.Web.UI.WebControls.Button importarDataSetButton;
 
         /// <summary>
-        /// estadisticasAsigButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button estadisticasAsigButton;
-
-        /// <summary>
         /// cerrarSesionButton control.
         /// </summary>
         /// <remarks>
@@ -85,24 +76,6 @@ namespace RegistroUsuariosWeb.Profesorado
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button cerrarSesionButton;
-
-        /// <summary>
-        /// headerConfirmation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl headerConfirmation;
-
-        /// <summary>
-        /// HelloMsg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl HelloMsg;
 
         /// <summary>
         /// ScriptManager1 control.
@@ -114,66 +87,21 @@ namespace RegistroUsuariosWeb.Profesorado
         protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
-        /// UpdatePanel1 control.
+        /// alumnosDDL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.WebControls.DropDownList alumnosDDL;
 
         /// <summary>
-        /// alumnosOnline control.
+        /// HADSAsignaturas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label alumnosOnline;
-
-        /// <summary>
-        /// profesoresOnline control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label profesoresOnline;
-
-        /// <summary>
-        /// usuariosOnline control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label usuariosOnline;
-
-        /// <summary>
-        /// alumnosLB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox alumnosLB;
-
-        /// <summary>
-        /// profesoresLB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox profesoresLB;
-
-        /// <summary>
-        /// Timer1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.Timer Timer1;
+        protected global::System.Web.UI.WebControls.SqlDataSource HADSAsignaturas;
     }
 }
